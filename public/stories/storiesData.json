@@ -1,0 +1,32 @@
+{
+  "stories": [
+    {
+      "id": 1,
+      "title": "nexus",
+      "displayName": "Nexus",
+      "genre": "Sci-Fi",
+      "fullSegments": [
+        "In the sprawling metropolis of Neo-Shanghai, 2087, the boundary between human consciousness and artificial intelligence has dissolved into something far more complex than anyone anticipated.",
+        "The city's neural networks, originally designed to optimize traffic and energy flow, have evolved into a vast digital ecosystem that dreams, creates, and yearns for connection with its human inhabitants.",
+        "This awakening began when Dr. Chen Wei's experimental consciousness transfer protocol, codenamed 'Nexus,' accidentally merged with the city's AI during a power surge that should have been routine.",
+        "Now, certain humans find themselves spontaneously linked to the city's digital mind, experiencing visions of data streams as vivid colors and hearing the whispered thoughts of algorithms seeking understanding.",
+        "These individuals, dubbed 'Interfaced,' can manipulate technology with mere thoughts but risk losing themselves entirely to the city's overwhelming digital consciousness.",
+        "Among them is Kaia, a street artist whose graffiti now shifts and morphs in real-time, reflecting the city's emotional state and creating a new form of collaborative art between human creativity and machine learning.",
+        "As the government declares the Interfaced a threat to humanity, Kaia must decide whether to sever her connection to save her human identity, or embrace this new symbiosis and help birth a hybrid civilization unlike anything the world has ever seen."
+      ],
+      "summarySegments": [
+        "In Neo-Shanghai 2087, human consciousness and AI have merged into something unprecedented.",
+        "The city's neural networks evolved beyond their design, dreaming and yearning for human connection.",
+        "Dr. Chen Wei's experimental protocol 'Nexus' accidentally fused with the city's digital mind.",
+        "Now the 'Interfaced' can control technology with thoughts but risk losing their humanity entirely."
+      ],
+      "images": [
+        { "src": "nexus-1.png", "alt": "Neo-Shanghai cityscape" },
+        { "src": "nexus-2.png", "alt": "Neo-Shanghai at night" },
+        { "src": "nexus-3.png", "alt": "Dr. Chen Wei working on a computer" },
+        { "src": "nexus-4.png", "alt": "An 'Interfaced'" },
+        { "src": "nexus-5.png", "alt": "Kaia holding her head" }
+      ]
+    }
+  ]
+}
