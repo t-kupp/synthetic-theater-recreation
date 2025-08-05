@@ -31,10 +31,10 @@ export default function Header() {
           <div className="bg-dark absolute h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
           <span className="relative block overflow-hidden">
             <span className="relative block transition-all duration-200 ease-out group-hover:-translate-y-full">
-              <Eye size={20} />
+              <Eye size={20} className="text-white/50" />
             </span>
             <span className="absolute top-full left-0 block transition-all duration-200 ease-out group-hover:-translate-y-full">
-              <Eye size={20} className="text-background" />
+              <Eye size={20} className="text-black" />
             </span>
           </span>
         </button>

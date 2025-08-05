@@ -6,7 +6,7 @@ interface SummaryProps {
 
 export default function Summary({ summarySegments }: SummaryProps) {
   return (
-    <div className="my-auto grid grid-cols-5 gap-5 px-5 py-10">
+    <div className="my-auto grid grid-cols-[1fr_1fr_1fr_1fr_auto] gap-5 px-5 py-10">
       {summarySegments.map((segment, i) => (
         <p key={i} className="text-dark text-[11px]">
           <span className="block">{`//${i + 1}`}</span>
