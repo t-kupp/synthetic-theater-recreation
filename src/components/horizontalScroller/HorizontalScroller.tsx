@@ -58,13 +58,13 @@ export default function HorizontalScroller({ data }: HorizontalScrollerProps) {
       {/* Horizontal scroller */}
       <div className="relative flex h-full w-full">
         {[...data.images, ...data.images, ...data.images].map((img, i) => (
-          <div key={i} ref={boxRef} className="box aspect-square h-full px-0.5">
+          <div key={i} ref={boxRef} className="box aspect-square h-full">
             <Image
               width={1024}
               height={1024}
               src={`/stories/${data.title}/${img.src}`}
               alt={img.alt}
-              className="scroller-image h-full w-full object-cover"
+              className="scroller-image h-full w-full object-cover px-0.5"
             />
           </div>
         ))}
