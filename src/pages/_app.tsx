@@ -1,3 +1,4 @@
+import Mouse from "@/components/Mouse";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={`${PPSupplyMono.variable} ${PPNeueBit.variable} antialiased`}>
       <Component {...pageProps} />
+      <Mouse />
     </main>
   );
 }

@@ -64,7 +64,7 @@ export default function HorizontalScroller({ data }: HorizontalScrollerProps) {
               height={1024}
               src={`/stories/${data.title}/${img.src}`}
               alt={img.alt}
-              className="h-full w-full object-cover"
+              className="scroller-image h-full w-full object-cover"
             />
           </div>
         ))}
