@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
 import { useRef } from "react";
+import DiscoverLink from "./DiscoverLink";
 
 export default function BottomLink({ data }: { data: Story }) {
   const bottomLinkSectionRef = useRef<HTMLDivElement>(null);
@@ -24,31 +25,38 @@ export default function BottomLink({ data }: { data: Story }) {
   );
 
   return (
-    <div ref={bottomLinkSectionRef} className="mb-8 flex px-5">
-      <Link
-        href={"/stories/nexus"}
-        className="relative flex flex-col"
-        onMouseEnter={() => timelineRef.current?.play()}
-        onMouseLeave={() => timelineRef.current?.reverse()}
+    <>
+      <div
+        ref={bottomLinkSectionRef}
+        className="my-auto mb-8 flex items-end justify-between px-5 lg:my-8"
       >
-        <h1 className="font-bit relative overflow-hidden text-[min(10rem,16vh)] leading-[65%] uppercase">
-          <span className="title relative block">{data.displayName}</span>
-          <span className="title absolute top-full block">{data.displayName}</span>
-        </h1>
-
-        <div className="w-[110px] overflow-x-hidden">
-          <div className="text-dark relative flex h-20 w-[360px] -translate-x-[50px] flex-nowrap">
-            <ArrowRight className="arrow-right absolute left-0/18" width={120} />
-            <ArrowRight className="arrow-right absolute left-1/18" width={120} />
-            <ArrowRight className="arrow-right absolute left-2/18" width={120} />
-            <ArrowRight className="arrow-right absolute left-6/18" width={120} />
-            <ArrowRight className="arrow-right absolute left-7/18" width={120} />
-            <ArrowRight className="arrow-right absolute left-8/18" width={120} />
+        <Link
+          href={"/stories/nexus"}
+          className="relative flex flex-col"
+          onMouseEnter={() => timelineRef.current?.play()}
+          onMouseLeave={() => timelineRef.current?.reverse()}
+        >
+          <h1 className="font-bit relative overflow-hidden text-[min(10rem,16vh)] leading-[65%] uppercase">
+            <span className="title relative block">{data.displayName}</span>
+            <span className="title absolute top-full block">{data.displayName}</span>
+          </h1>
+          <div className="w-[110px] overflow-x-hidden">
+            <div className="text-dark relative flex h-20 w-[360px] -translate-x-[50px] flex-nowrap">
+              <ArrowRight className="arrow-right absolute left-0/18" width={120} />
+              <ArrowRight className="arrow-right absolute left-1/18" width={120} />
+              <ArrowRight className="arrow-right absolute left-2/18" width={120} />
+              <ArrowRight className="arrow-right absolute left-6/18" width={120} />
+              <ArrowRight className="arrow-right absolute left-7/18" width={120} />
+              <ArrowRight className="arrow-right absolute left-8/18" width={120} />
+            </div>
           </div>
-        </div>
-      </Link>
-      <div className="font-bit text-dark absolute right-5 bottom-5 text-[3.2rem] leading-[0.6]">{`(0${data.id})`}</div>
-    </div>
+        </Link>
+        <div className="font-bit text-dark right-5 bottom-5 text-[3.2rem] leading-[0.6]">{`(0${data.id})`}</div>
+      </div>
+      <div className="mb-8 flex w-full items-center justify-center lg:hidden">
+        <DiscoverLink />
+      </div>
+    </>
   );
 }
 

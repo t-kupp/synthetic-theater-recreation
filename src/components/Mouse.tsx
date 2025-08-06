@@ -28,7 +28,7 @@ export default function Mouse() {
   return (
     <div
       ref={cursorRef}
-      className={`${showDrag ? "h-8 w-22" : "h-2 w-2"} bg-light pointer-events-none fixed flex items-center justify-center rounded-full uppercase transition-[width,height]`}
+      className={`${showDrag ? "h-8 w-22" : "h-2 w-2"} bg-light pointer-events-none fixed hidden items-center justify-center rounded-full uppercase transition-[width,height] lg:flex`}
     >
       {showDrag && (
         <span className="text-background flex items-center justify-center gap-1.5 leading-none">
