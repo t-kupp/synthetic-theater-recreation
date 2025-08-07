@@ -28,8 +28,6 @@ export default function HorizontalScroller({ data }: HorizontalScrollerProps) {
     };
   }, []);
 
-  console.log("cardWidth:", cardWidth);
-
   useGSAP(() => {
     const boxes: HTMLDivElement[] = gsap.utils.toArray(".box");
 

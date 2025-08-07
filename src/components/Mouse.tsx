@@ -26,10 +26,8 @@ export default function Mouse() {
     }
 
     function handleMouseDown(e: MouseEvent) {
-      console.log("mouse down");
       const scrollerHovered =
         e.target instanceof Element && e.target.classList.contains("scroller-image");
-      console.log("scrollerHovered at mousedown:", scrollerHovered);
       if (scrollerHovered) setShowDrag(true);
     }
 
