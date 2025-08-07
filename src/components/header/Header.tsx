@@ -43,7 +43,7 @@ export default function Header() {
               </span>
             </button>
           </div>
-          {/* Menu mobile  */}
+          {/* Menu mobile button*/}
           <div className="flex lg:hidden">
             <button
               onClick={() => setShowMobileMenu((prev) => !prev)}
@@ -55,6 +55,7 @@ export default function Header() {
           </div>
         </div>
       </header>
+      {/* Mobile menu modal  */}
       <div
         className={`${showMobileMenu ? "opacity-100" : "pointer-events-none opacity-0"} z-10 transition-opacity duration-500`}
       >

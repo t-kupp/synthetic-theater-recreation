@@ -15,13 +15,13 @@ export default function MobileMenu() {
           001/Screening
         </Link>
         <Link
-          className="border-dark self-end rounded-full border px-8 pt-3.5 pb-2 text-2xl uppercase"
+          className="border-dark text-dark self-end rounded-full border px-8 pt-3.5 pb-2 text-2xl uppercase"
           href={"/archive"}
         >
           002/Archive
         </Link>
         <Link
-          className="border-dark self-center rounded-full border px-8 pt-3.5 pb-2 text-2xl uppercase"
+          className="border-dark text-dark self-center rounded-full border px-8 pt-3.5 pb-2 text-2xl uppercase"
           href={"/manifesto"}
         >
           003/Manifesto
