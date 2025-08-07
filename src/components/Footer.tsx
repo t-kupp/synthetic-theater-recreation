@@ -10,7 +10,7 @@ export default function Footer() {
   });
 
   return (
-    <div className="flex gap-2 overflow-hidden">
+    <div className="z-10 flex gap-2 overflow-hidden">
       {[...Array(50)].map((_, i) => (
         <span
           key={i}

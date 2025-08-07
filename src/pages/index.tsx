@@ -10,7 +10,7 @@ const newestStory = stories[stories.length - 1];
 
 export default function Home() {
   return (
-    <div className="pt-header-height flex h-screen flex-col">
+    <div className="pt-header-height flex h-[100dvh] flex-col">
       <Header />
       <HorizontalScroller data={newestStory} />
       <Summary data={newestStory} />

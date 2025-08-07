@@ -39,3 +39,7 @@ body {
 button {
   cursor: pointer;
 }
+
+.unicorn-container > a {
+  display: none !important;
+}
