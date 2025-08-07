@@ -13,7 +13,7 @@ export default function Home() {
     <div className="pt-header-height flex h-screen flex-col">
       <Header />
       <HorizontalScroller data={newestStory} />
-      <Summary summarySegments={newestStory.summarySegments} />
+      <Summary data={newestStory} />
       <BottomLink data={newestStory} />
       <Footer />
     </div>
