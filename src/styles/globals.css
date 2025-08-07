@@ -7,6 +7,37 @@
   --header-height: 100px;
 }
 
+/* Theme classes for dynamic switching */
+:root[data-theme="0"] {
+  --theme-background: #141314;
+  --theme-light: #d3d5c4;
+  --theme-dark: #777764;
+}
+
+:root[data-theme="1"] {
+  --theme-background: #503037;
+  --theme-light: #e0bec5;
+  --theme-dark: #81515c;
+}
+
+:root[data-theme="2"] {
+  --theme-background: #363b26;
+  --theme-light: #c4c9b2;
+  --theme-dark: #5a6242;
+}
+
+:root[data-theme="3"] {
+  --theme-background: #293d38;
+  --theme-light: #b6cbc5;
+  --theme-dark: #45645c;
+}
+
+:root[data-theme="4"] {
+  --theme-background: #3c364c;
+  --theme-light: #cbc3db;
+  --theme-dark: #63597b;
+}
+
 @theme inline {
   --color-background: var(--theme-background);
   --color-light: var(--theme-light);
@@ -26,14 +57,17 @@
   }
 } */
 
-main {
-  font-family: var(--font-pp-supply-mono), Arial, Helvetica, sans-serif;
-}
-
 body {
   background: var(--theme-background);
   color: var(--theme-light);
   font-size: 13px;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+main {
+  font-family: var(--font-pp-supply-mono), Arial, Helvetica, sans-serif;
 }
 
 button {

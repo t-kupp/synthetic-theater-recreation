@@ -6,6 +6,15 @@ import MobileMenu from "./MobileMenu";
 
 export default function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState(0);
+
+  function cycleThemes() {
+    let newTheme = currentTheme + 1;
+    if (newTheme > 4) newTheme = 0;
+
+    setCurrentTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme.toString());
+  }
 
   return (
     <>
@@ -31,7 +40,10 @@ export default function Header() {
         <div className="flex flex-1 justify-end gap-2">
           {/* Theme switcher */}
           <div className="flex">
-            <button className="border-dark group relative flex h-12 w-12 items-center justify-center rounded-full border">
+            <button
+              onClick={cycleThemes}
+              className="border-dark group relative flex h-12 w-12 items-center justify-center rounded-full border"
+            >
               <div className="bg-dark absolute h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
               <span className="relative block overflow-hidden">
                 <span className="relative block transition-all duration-200 ease-out group-hover:-translate-y-full">
