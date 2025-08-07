@@ -4,7 +4,7 @@ import ShapeBackground from "./ShapeBackground";
 export default function MobileMenu() {
   return (
     <nav className="pt-header-height bg-background fixed inset-0">
-      <div className="relative flex h-[calc(100%-248px)] flex-col items-center justify-center">
+      <div className="relative flex h-[calc(100%-248px)] flex-col items-center justify-center mix-blend-difference">
         <ShapeBackground />
       </div>
       <div className="flex flex-col justify-end gap-4 px-4 pt-4 pb-8">
