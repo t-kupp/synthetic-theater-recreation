@@ -6,7 +6,7 @@ import { GiPolarStar } from "react-icons/gi";
 export default function Footer() {
   useGSAP(() => {
     const texts = gsap.utils.toArray(".bottom-text");
-    const loop = horizontalLoop(texts, { speed: 0.3 });
+    const loop = horizontalLoop(texts, { speed: 0.3, repeat: -1 });
   });
 
   return (

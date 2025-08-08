@@ -32,15 +32,15 @@ export default function BottomLink({ data }: { data: Story }) {
       >
         <Link
           href={"/stories/nexus"}
-          className="relative flex flex-col"
+          className="relative -mb-5 flex flex-col md:-mb-0"
           onMouseEnter={() => timelineRef.current?.play()}
           onMouseLeave={() => timelineRef.current?.reverse()}
         >
-          <h1 className="font-bit relative overflow-hidden text-[min(10rem,16vh)] leading-[65%] uppercase">
+          <h1 className="font-bit relative overflow-hidden text-[4.5rem] leading-[65%] uppercase md:text-[10rem]">
             <span className="title relative block">{data.displayName}</span>
             <span className="title absolute top-full block">{data.displayName}</span>
           </h1>
-          <div className="w-[110px] overflow-x-hidden">
+          <div className="w-[110px] -translate-x-[18px] scale-[60%] overflow-x-hidden md:-translate-x-0 md:scale-100">
             <div className="text-dark relative flex h-20 w-[360px] -translate-x-[50px] flex-nowrap">
               <ArrowRight className="arrow-right absolute left-0/18" width={120} />
               <ArrowRight className="arrow-right absolute left-1/18" width={120} />
@@ -51,7 +51,7 @@ export default function BottomLink({ data }: { data: Story }) {
             </div>
           </div>
         </Link>
-        <div className="font-bit text-dark right-5 bottom-5 text-[3.2rem] leading-[0.6]">{`(0${data.id})`}</div>
+        <div className="font-bit text-dark right-5 bottom-5 text-[2rem] leading-[0.6] md:text-[3.2rem]">{`(0${data.id})`}</div>
       </div>
       <div className="mb-8 flex w-full items-center justify-center lg:hidden">
         <DiscoverLink />
