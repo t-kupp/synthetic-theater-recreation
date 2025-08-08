@@ -3,11 +3,12 @@ import ShapeBackground from "./ShapeBackground";
 
 export default function MobileMenu() {
   return (
-    <nav className="pt-header-height bg-background fixed inset-0">
-      <div className="relative flex h-[calc(100%-248px)] flex-col items-center justify-center mix-blend-difference">
+    <nav className="pt-header-height bg-background fixed inset-0 flex flex-col">
+      <div className="relative flex flex-1 flex-col items-center justify-center">
         <ShapeBackground />
+        <div className="bg-background absolute bottom-0 h-18 w-full"></div>
       </div>
-      <div className="flex flex-col justify-end gap-4 px-4 pt-4 pb-8">
+      <div className="flex flex-col justify-end gap-4 px-4 pt-4 pb-10">
         <Link
           className="border-dark self-start rounded-full border px-8 pt-3.5 pb-2 text-2xl uppercase"
           href={"/"}
