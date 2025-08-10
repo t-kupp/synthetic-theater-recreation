@@ -12,9 +12,9 @@ export default function Home() {
   return (
     <div className="pt-header-height flex h-[100dvh] flex-col">
       <Header />
-      <HorizontalScroller data={newestStory} />
-      <Summary data={newestStory} />
-      <BottomLink data={newestStory} />
+      <HorizontalScroller story={newestStory} />
+      <Summary story={newestStory} />
+      <BottomLink story={newestStory} />
       <Footer />
     </div>
   );

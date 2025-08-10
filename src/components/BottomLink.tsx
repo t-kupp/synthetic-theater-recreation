@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import DiscoverLink from "./DiscoverLink";
 
-export default function BottomLink({ data }: { data: Story }) {
+export default function BottomLink({ story }: { story: Story }) {
   const bottomLinkSectionRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<GSAPTimeline>(null);
 
@@ -31,14 +31,14 @@ export default function BottomLink({ data }: { data: Story }) {
         className="my-auto mb-8 flex items-end justify-between px-5 lg:my-8"
       >
         <Link
-          href={`/story/${data.title}`}
+          href={`/story/${story.title}`}
           className="relative -mb-5 flex flex-col md:-mb-0"
           onMouseEnter={() => timelineRef.current?.play()}
           onMouseLeave={() => timelineRef.current?.reverse()}
         >
           <h1 className="font-bit relative overflow-hidden text-[4.5rem] leading-[65%] uppercase md:text-[10rem]">
-            <span className="title relative block">{data.displayName}</span>
-            <span className="title absolute top-full block">{data.displayName}</span>
+            <span className="title relative block">{story.displayName}</span>
+            <span className="title absolute top-full block">{story.displayName}</span>
           </h1>
           <div className="w-[110px] -translate-x-[18px] scale-[60%] overflow-x-hidden md:-translate-x-0 md:scale-100">
             <div className="text-dark relative flex h-20 w-[360px] -translate-x-[50px] flex-nowrap">
@@ -51,10 +51,10 @@ export default function BottomLink({ data }: { data: Story }) {
             </div>
           </div>
         </Link>
-        <div className="font-bit text-dark right-5 bottom-5 text-[2rem] leading-[0.6] md:text-[3.2rem]">{`(0${data.id})`}</div>
+        <div className="font-bit text-dark right-5 bottom-5 text-[2rem] leading-[0.6] md:text-[3.2rem]">{`(0${story.id})`}</div>
       </div>
       <div className="mb-8 flex w-full items-center justify-center lg:hidden">
-        <DiscoverLink data={data} />
+        <DiscoverLink story={story} />
       </div>
     </>
   );

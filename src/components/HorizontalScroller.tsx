@@ -9,10 +9,10 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 interface HorizontalScrollerProps {
-  data: Story;
+  story: Story;
 }
 
-export default function HorizontalScroller({ data }: HorizontalScrollerProps) {
+export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
   const boxRef = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth] = useState(0);
   const { setShowDragCursor } = useStore();
@@ -50,9 +50,9 @@ export default function HorizontalScroller({ data }: HorizontalScrollerProps) {
     <div className="flex h-[45vh] flex-col overflow-x-hidden">
       {/* title, id, title  */}
       <div className="mb-2 flex justify-between px-5 text-[11px] uppercase">
-        <span>{data.title}</span>
-        <span>(0{data.id})</span>
-        <span>{data.title}</span>
+        <span>{story.title}</span>
+        <span>(0{story.id})</span>
+        <span>{story.title}</span>
       </div>
 
       {/* Horizontal scroller */}
@@ -61,12 +61,12 @@ export default function HorizontalScroller({ data }: HorizontalScrollerProps) {
         onMouseEnter={() => setShowDragCursor(true)}
         onMouseLeave={() => setShowDragCursor(false)}
       >
-        {[...data.images, ...data.images, ...data.images].map((img, i) => (
+        {[...story.images, ...story.images, ...story.images].map((img, i) => (
           <div key={i} ref={boxRef} className="box aspect-square h-full">
             <Image
               width={1024}
               height={1024}
-              src={`/stories/${data.title}/${img.src}`}
+              src={`/stories/${story.title}/${img.src}`}
               alt={img.alt}
               className="scroller-image h-full w-full object-cover px-0.5"
             />
@@ -79,7 +79,7 @@ export default function HorizontalScroller({ data }: HorizontalScrollerProps) {
         style={{ transform: `translateX(calc(${cardWidth / 2}px - 100%))` }}
         className="text-dark relative left-1/2 w-fit pt-2 pr-0.5 text-[11px] uppercase"
       >
-        Genre: {data.genre}
+        Genre: {story.genre}
       </p>
     </div>
   );

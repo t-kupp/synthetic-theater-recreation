@@ -2,13 +2,13 @@ import { Story } from "@/types";
 import Link from "next/link";
 
 interface SummaryProps {
-  data: Story;
+  story: Story;
 }
 
-export default function DiscoverLink({ data }: SummaryProps) {
+export default function DiscoverLink({ story }: SummaryProps) {
   return (
     <Link
-      href={`/story/${data.title}`}
+      href={`/story/${story.title}`}
       className="border-dark group relative flex h-full items-center justify-center rounded-full border px-4 py-2 uppercase"
     >
       <div className="bg-dark absolute bottom-0 h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
