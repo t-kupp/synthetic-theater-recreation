@@ -29,6 +29,34 @@
         { "src": "nexus-6.png", "alt": "Kaia doing graffiti" },
         { "src": "nexus-7.png", "alt": "Kaia looking at the city" }
       ]
+    },
+    {
+      "id": 2,
+      "title": "resonance",
+      "displayName": "Resonance",
+      "genre": "Sci-Fi",
+      "fullSegments": [
+        "In the floating research station Kepler-442b, xenobiologist Dr. Yuki Tanaka discovered that crystalline formations in the methane clouds were actually silicon-based consciousness communicating through harmonic vibrations.",
+        "The entities, dubbed 'Harmonics,' existed as living music—their thoughts were melodies, their emotions were chord progressions that could shatter metal or heal organic tissue.",
+        "When Tanaka's scanner malfunctioned, it began translating their songs into language, revealing they had been composing an epic ballad about humanity for decades.",
+        "As communication deepened, the Harmonics' songs began changing Tanaka on a cellular level, her bones resonating at new frequencies while slowly crystallizing her nervous system.",
+        "The research station's crew now debates whether to evacuate or eliminate the threat as Tanaka's transformation accelerates beyond human limits.",
+        "She faces an impossible choice: return to Earth as a warning about alien influence, or become the first human movement in a cosmic symphony that could elevate or dissolve humanity entirely."
+      ],
+      "summarySegments": [
+        "On gas giant Kepler-442b, xenobiologist Dr. Yuki Tanaka discovers crystalline formations are actually silicon-based consciousness.",
+        "These 'Harmonics' communicate through musical vibrations and have been observing humanity with growing curiosity.",
+        "The entities exist as living music, with thoughts as melodies and emotions as chord progressions that can affect matter.",
+        "Tanaka's deepening communication transforms her physically, crystallizing her nervous system while enhancing her abilities."
+      ],
+      "images": [
+        { "src": "resonance-1.png", "alt": "Floating research station in methane clouds" },
+        { "src": "resonance-2.png", "alt": "Dr. Yuki Tanaka examining crystalline formations" },
+        { "src": "resonance-3.png", "alt": "Harmonics communicating through light and vibration" },
+        { "src": "resonance-4.png", "alt": "Tanaka's scanner translating alien songs" },
+        { "src": "resonance-5.png", "alt": "Tanaka's partially crystallized hand" },
+        { "src": "resonance-6.png", "alt": "Tanaka choosing between humanity and transformation" }
+      ]
     }
   ]
 }

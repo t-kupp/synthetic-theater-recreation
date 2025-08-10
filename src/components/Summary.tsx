@@ -15,7 +15,7 @@ export default function Summary({ data }: SummaryProps) {
         </p>
       ))}
       <div className="h-[36px] self-center">
-        <DiscoverLink />
+        <DiscoverLink data={data} />
       </div>
     </div>
   );

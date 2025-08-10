@@ -31,7 +31,7 @@ export default function BottomLink({ data }: { data: Story }) {
         className="my-auto mb-8 flex items-end justify-between px-5 lg:my-8"
       >
         <Link
-          href={"/stories/nexus"}
+          href={`/story/${data.title}`}
           className="relative -mb-5 flex flex-col md:-mb-0"
           onMouseEnter={() => timelineRef.current?.play()}
           onMouseLeave={() => timelineRef.current?.reverse()}
@@ -54,7 +54,7 @@ export default function BottomLink({ data }: { data: Story }) {
         <div className="font-bit text-dark right-5 bottom-5 text-[2rem] leading-[0.6] md:text-[3.2rem]">{`(0${data.id})`}</div>
       </div>
       <div className="mb-8 flex w-full items-center justify-center lg:hidden">
-        <DiscoverLink />
+        <DiscoverLink data={data} />
       </div>
     </>
   );
