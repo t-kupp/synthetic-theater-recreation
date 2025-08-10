@@ -2,6 +2,8 @@
   "stories": [
     {
       "id": 1,
+      "createdAt": "",
+      "screeningDate": "",
       "title": "nexus",
       "displayName": "Nexus",
       "genre": "Sci-Fi",
@@ -28,10 +30,13 @@
         { "src": "nexus-5.png", "alt": "Kaia holding her head" },
         { "src": "nexus-6.png", "alt": "Kaia doing graffiti" },
         { "src": "nexus-7.png", "alt": "Kaia looking at the city" }
-      ]
+      ],
+      "soundtrack": {}
     },
     {
       "id": 2,
+      "createdAt": "",
+      "screeningDate": "2025 August 09",
       "title": "resonance",
       "displayName": "Resonance",
       "genre": "Sci-Fi",
@@ -56,7 +61,12 @@
         { "src": "resonance-4.png", "alt": "Tanaka's scanner translating alien songs" },
         { "src": "resonance-5.png", "alt": "Tanaka's partially crystallized hand" },
         { "src": "resonance-6.png", "alt": "Tanaka choosing between humanity and transformation" }
-      ]
+      ],
+      "soundtrack": {
+        "artist": "Moderat",
+        "title": "A New Error",
+        "url": "https://youtu.be/QpxFcMYRV08?si=SMM3Qkz1TXVsEwLo"
+      }
     }
   ]
 }

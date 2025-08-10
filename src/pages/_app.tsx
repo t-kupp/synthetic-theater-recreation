@@ -1,3 +1,4 @@
+import Header from "@/components/header/Header";
 import Mouse from "@/components/Mouse";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
@@ -16,6 +17,7 @@ const PPNeueBit = localFont({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={`${PPSupplyMono.variable} ${PPNeueBit.variable} antialiased`}>
+      <Header />
       <Component {...pageProps} />
       <Mouse />
     </main>

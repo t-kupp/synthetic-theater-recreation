@@ -1,4 +1,3 @@
-import Header from "@/components/header/Header";
 import HorizontalScroller from "@/components/HorizontalScroller";
 
 import storiesData from "@/../public/stories/storiesData.json";
@@ -11,7 +10,6 @@ const newestStory = stories[stories.length - 1];
 export default function Home() {
   return (
     <div className="pt-header-height flex h-[100dvh] flex-col">
-      <Header />
       <HorizontalScroller story={newestStory} />
       <Summary story={newestStory} />
       <BottomLink story={newestStory} />
