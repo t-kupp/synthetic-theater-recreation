@@ -1,8 +1,11 @@
 import { create } from "zustand";
 
-const useStore = create((set) => ({
+interface StoreState {
+  showDragCursor: boolean;
+  setShowDragCursor: (showDragCursor: boolean) => void;
+}
+
+export const useStore = create<StoreState>((set) => ({
   showDragCursor: false,
-  showDragText: false,
   setShowDragCursor: (showDragCursor: boolean) => set({ showDragCursor }),
-  setShowDragText: (showDragText: boolean) => set({ showDragText }),
 }));

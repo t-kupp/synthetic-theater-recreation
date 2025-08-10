@@ -1,5 +1,6 @@
 "use client";
 
+import { useStore } from "@/store";
 import { Story } from "@/types";
 import { horizontalLoop } from "@/utils/infiniteScroller";
 import { useGSAP } from "@gsap/react";
@@ -14,6 +15,7 @@ interface HorizontalScrollerProps {
 export default function HorizontalScroller({ data }: HorizontalScrollerProps) {
   const boxRef = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth] = useState(0);
+  const { setShowDragCursor } = useStore();
 
   useEffect(() => {
     function handleResize() {
@@ -54,7 +56,11 @@ export default function HorizontalScroller({ data }: HorizontalScrollerProps) {
       </div>
 
       {/* Horizontal scroller */}
-      <div className="relative flex h-full w-full">
+      <div
+        className="relative flex h-full w-full"
+        onMouseEnter={() => setShowDragCursor(true)}
+        onMouseLeave={() => setShowDragCursor(false)}
+      >
         {[...data.images, ...data.images, ...data.images].map((img, i) => (
           <div key={i} ref={boxRef} className="box aspect-square h-full">
             <Image
