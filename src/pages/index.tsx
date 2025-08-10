@@ -1,5 +1,5 @@
 import Header from "@/components/header/Header";
-import HorizontalScroller from "@/components/horizontalScroller/HorizontalScroller";
+import HorizontalScroller from "@/components/HorizontalScroller";
 
 import storiesData from "@/../public/stories/storiesData.json";
 import BottomLink from "@/components/BottomLink";
