@@ -71,7 +71,7 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
               />
             )}
             {item.type === "segment" && (
-              <div className="flex h-full flex-col justify-between p-4 text-[min(24px,2vh)]">
+              <div className="flex h-full flex-col justify-between p-4 text-[min(24px,1.5vh)]">
                 <p className="text-dark">{`// ${item.id + 1}`}</p>
                 <p className="max-w-[34ch]">{item.text}</p>
               </div>
