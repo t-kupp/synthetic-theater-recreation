@@ -16,7 +16,7 @@ const PPNeueBit = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${PPSupplyMono.variable} ${PPNeueBit.variable} antialiased`}>
+    <main className={`${PPSupplyMono.variable} ${PPNeueBit.variable} h-full antialiased`}>
       <Header />
       <Component {...pageProps} />
       <Mouse />

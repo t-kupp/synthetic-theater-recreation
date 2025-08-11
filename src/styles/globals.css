@@ -67,6 +67,7 @@ body {
 }
 
 main {
+  height: 100dvh;
   font-family: var(--font-pp-supply-mono), Arial, Helvetica, sans-serif;
 }
 

@@ -1,5 +1,5 @@
 import storiesData from "@/../public/stories/storiesData.json";
-import DetailPage from "@/components/DetailPage";
+import DetailPage from "@/components/detailPage/DetailPage";
 
 export default function index() {
   const { stories } = storiesData;

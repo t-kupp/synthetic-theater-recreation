@@ -14,3 +14,7 @@ export interface Story {
     url?: string;
   };
 }
+
+export type GalleryItem =
+  | { type: "image"; src: string; alt: string }
+  | { id: number; type: "segment"; text: string };
