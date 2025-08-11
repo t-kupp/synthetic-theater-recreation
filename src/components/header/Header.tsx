@@ -24,8 +24,8 @@ export default function Header() {
           <Link href={"/"} className="inline-flex h-full items-center gap-2">
             <Gem size={32} className="text-dark -mt-[2px]" />
             <p className="text-xs leading-[1.15] tracking-wider uppercase">
-              Synthetic <br />
-              Theatre
+              Neural <br />
+              Canvas
             </p>
           </Link>
         </div>

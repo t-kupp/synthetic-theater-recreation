@@ -1,3 +1,4 @@
+import { useStore } from "@/store";
 import { GalleryItem, Story } from "@/types";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -13,8 +14,8 @@ interface HorizontalScrollerProps {
 export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
-
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
+  const { setShowDragCursor } = useStore();
 
   useEffect(() => {
     const images = story.images;
@@ -48,8 +49,13 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
   }, [galleryItems]);
 
   return (
-    <div ref={containerRef} className="h-full overflow-x-hidden overflow-y-hidden">
-      <div ref={galleryRef} className="mt-10 flex h-full w-fit">
+    <div ref={containerRef} className="mt-10 h-full overflow-x-hidden overflow-y-hidden">
+      <div
+        ref={galleryRef}
+        onMouseEnter={() => setShowDragCursor(true)}
+        onMouseLeave={() => setShowDragCursor(false)}
+        className="flex h-full w-fit"
+      >
         {galleryItems.map((item, i) => (
           <div
             key={i}
