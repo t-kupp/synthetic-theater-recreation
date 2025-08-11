@@ -1,5 +1,6 @@
 import { Story } from "@/types";
 import { ArrowUpRight } from "lucide-react";
+import Footer from "./Footer";
 import HorizontalScroller from "./HorizontalScroller";
 
 interface DetailPageProps {
@@ -64,6 +65,7 @@ export default function DetailPage({ story }: DetailPageProps) {
 
       {/* Horizontal scroller  */}
       <HorizontalScroller story={story} />
+      <Footer />
     </section>
   );
 }

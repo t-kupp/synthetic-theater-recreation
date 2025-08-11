@@ -49,12 +49,12 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
   }, [galleryItems]);
 
   return (
-    <div ref={containerRef} className="mt-10 h-full overflow-x-hidden overflow-y-hidden">
+    <div ref={containerRef} className="my-10 h-full overflow-x-hidden overflow-y-hidden">
       <div
         ref={galleryRef}
         onMouseEnter={() => setShowDragCursor(true)}
         onMouseLeave={() => setShowDragCursor(false)}
-        className="flex h-full w-fit"
+        className="flex h-full w-fit px-5"
       >
         {galleryItems.map((item, i) => (
           <div
