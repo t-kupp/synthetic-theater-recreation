@@ -41,8 +41,6 @@ export default function Mouse() {
     };
   }, [showDragCursor]);
 
-  console.log("showDragCursor:", showDragCursor);
-
   return (
     <div
       ref={cursorRef}

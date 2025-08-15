@@ -36,6 +36,7 @@ export default function DetailPage({ story }: DetailPageProps) {
 
       {/* Horizontal scroller  */}
       <HorizontalScroller story={story} />
+
       <Footer />
     </section>
   );

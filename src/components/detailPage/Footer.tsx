@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <div className="flex flex-col gap-5 px-5 pb-5 text-[11px] uppercase sm:flex-row sm:gap-20">
       <div>
-        <p>AI</p>
-        <p className="text-dark">ChatGPT Claude Midjourney</p>
+        <p>AI Content</p>
+        <p className="text-dark">ChatGPT & Midjourney (Art) Claude (Stories)</p>
       </div>
       <div>
         <p>Design</p>
@@ -21,6 +21,10 @@ export default function Footer() {
             </p>
           </div>
         </a>
+      </div>
+      <div>
+        <p>Code</p>
+        <p className="text-dark">Handwritten</p>
       </div>
     </div>
   );
