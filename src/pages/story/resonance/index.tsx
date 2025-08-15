@@ -4,6 +4,9 @@ import DetailPage from "@/components/detailPage/DetailPage";
 export default function index() {
   const { stories } = storiesData;
   const resonance = stories.find((story) => story.title === "resonance") || stories[0];
+  const previousStory = stories.find((story) => story.id === resonance.id - 1) || null;
 
-  return <DetailPage story={resonance} />;
+  console.log("previousStory:", previousStory);
+
+  return <DetailPage story={resonance} previousStory={previousStory} />;
 }

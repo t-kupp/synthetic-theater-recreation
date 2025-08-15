@@ -2,10 +2,22 @@ import { Story } from "@/types";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 import DiscoverLink from "./DiscoverLink";
 
-export default function BottomLink({ story }: { story: Story }) {
+interface BottomLinkProps {
+  story: Story;
+  isEndCard?: boolean;
+  children?: ReactNode;
+  className?: string;
+}
+
+export default function BottomLink({
+  story,
+  isEndCard = false,
+  children,
+  className,
+}: BottomLinkProps) {
   const bottomLinkSectionRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<GSAPTimeline>(null);
 
@@ -28,14 +40,15 @@ export default function BottomLink({ story }: { story: Story }) {
     <>
       <div
         ref={bottomLinkSectionRef}
-        className="my-auto mb-8 flex items-end justify-between px-5 lg:my-8"
+        className={"my-auto mb-8 flex items-end justify-between px-5 lg:my-8" + ` ${className}`}
       >
         <Link
           href={`/story/${story.title}`}
-          className="relative -mb-5 flex flex-col md:-mb-0"
+          className={(isEndCard ? "w-full" : "w-auto") + " relative -mb-5 flex flex-col md:-mb-0"}
           onMouseEnter={() => timelineRef.current?.play()}
           onMouseLeave={() => timelineRef.current?.reverse()}
         >
+          {children}
           <h1 className="font-bit relative overflow-hidden text-[4.5rem] leading-[65%] uppercase md:text-[10rem]">
             <span className="title relative block">{story.displayName}</span>
             <span className="title absolute top-full block">{story.displayName}</span>
@@ -51,11 +64,15 @@ export default function BottomLink({ story }: { story: Story }) {
             </div>
           </div>
         </Link>
-        <div className="font-bit text-dark right-5 bottom-5 text-[2rem] leading-[0.6] md:text-[3.2rem]">{`(0${story.id})`}</div>
+        {!isEndCard && (
+          <div className="font-bit text-dark right-5 bottom-5 text-[2rem] leading-[0.6] md:text-[3.2rem]">{`(0${story.id})`}</div>
+        )}
       </div>
-      <div className="mb-8 flex w-full items-center justify-center lg:hidden">
-        <DiscoverLink story={story} />
-      </div>
+      {!isEndCard && (
+        <div className="mb-8 flex w-full items-center justify-center lg:hidden">
+          <DiscoverLink story={story} />
+        </div>
+      )}
     </>
   );
 }

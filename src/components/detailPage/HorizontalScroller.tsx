@@ -6,13 +6,15 @@ import { Draggable } from "gsap/Draggable";
 import InertiaPlugin from "gsap/InertiaPlugin";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import BottomLink from "../landingPage/BottomLink";
 import SwipeIndicator from "./SwipeIndicator";
 
 interface HorizontalScrollerProps {
   story: Story;
+  previousStory: Story | null;
 }
 
-export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
+export default function HorizontalScroller({ story, previousStory }: HorizontalScrollerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
@@ -44,7 +46,7 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
       inertia: true,
       // Calculating bounds minX dependent on gallery width and container width
       bounds: {
-        minX: -galleryRef.current.clientWidth + containerRef.current.clientWidth - 30,
+        minX: -galleryRef.current.clientWidth + containerRef.current.clientWidth - 24,
         maxX: 0,
       },
       // this.x is the x position of the galleryRef element -24 means the gallery has been
@@ -62,14 +64,11 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
   return (
     <>
       <div ref={containerRef} className="mt-10 mb-4 h-full overflow-x-hidden overflow-y-hidden">
-        <div
-          ref={galleryRef}
-          onMouseEnter={() => setShowDragCursor(true)}
-          onMouseLeave={() => setShowDragCursor(false)}
-          className="mx-5 flex h-full w-fit"
-        >
+        <div ref={galleryRef} className="mx-5 flex h-full w-fit">
           {galleryItems.map((item, i) => (
             <div
+              onMouseEnter={() => setShowDragCursor(true)}
+              onMouseLeave={() => setShowDragCursor(false)}
               key={i}
               className={`${item.type === "image" ? "aspect-square" : "bg-dark/15 aspect-[3/4]"} h-full px-1`}
             >
@@ -90,6 +89,24 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
               )}
             </div>
           ))}
+          {previousStory && (
+            <div className="group aspect-square h-full w-full px-1">
+              <div className="flex h-full w-full flex-col justify-end text-[min(24px,1.5vh)]">
+                <BottomLink className="!my-0 !h-full !w-full !px-0" story={previousStory} isEndCard>
+                  <div className="h-full">
+                    <Image
+                      className="h-full w-full object-cover transition-[filter] duration-300 group-hover:brightness-100 lg:brightness-50"
+                      src={`/stories/${previousStory.title}/${previousStory.images[0].src}`}
+                      alt={`/stories/${previousStory.title}/${previousStory.images[0].alt}`}
+                      height={1024}
+                      width={1024}
+                    ></Image>
+                    <p className="text-light my-5 text-[11px] uppercase">Previous screening</p>
+                  </div>
+                </BottomLink>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <SwipeIndicator showScrollIndicator={showScrollIndicator} />

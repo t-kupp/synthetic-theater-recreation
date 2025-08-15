@@ -5,13 +5,14 @@ import InfoBar from "./InfoBar";
 
 interface DetailPageProps {
   story: Story;
+  previousStory: Story | null;
 }
 
-export default function DetailPage({ story }: DetailPageProps) {
+export default function DetailPage({ story, previousStory }: DetailPageProps) {
   return (
     <section className="pt-header-height flex h-full flex-col">
       {/* Name and info  */}
-      <div className="flex items-end gap-20 px-5">
+      <div className="flex items-end px-5 lg:gap-20">
         <div className="flex-1">
           <h1 className="font-bit text-[16vw] leading-[60%] tracking-tight uppercase lg:translate-y-1.5 lg:text-[min(9vw,10rem)]">
             {story.displayName}
@@ -35,7 +36,7 @@ export default function DetailPage({ story }: DetailPageProps) {
       </div>
 
       {/* Horizontal scroller  */}
-      <HorizontalScroller story={story} />
+      <HorizontalScroller story={story} previousStory={previousStory} />
 
       <Footer />
     </section>
