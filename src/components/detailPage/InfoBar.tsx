@@ -9,7 +9,7 @@ export default function InfoBar({ story }: InfoBarProps) {
   return (
     <div className="mt-10 flex items-end justify-between px-5 text-[11px] lg:mt-0 lg:gap-20 lg:px-0">
       {/* Soundtrack  */}
-      {story.soundtrack && (
+      {story.soundtrack?.artist && story.soundtrack?.title && (
         <div className="uppercase">
           <p>Soundtrack</p>
           <a href="https://youtu.be/QpxFcMYRV08?si=nOFCyAS8hOpFYS-c" target="_blank" className="">
@@ -28,10 +28,12 @@ export default function InfoBar({ story }: InfoBarProps) {
       )}
 
       {/* Genre  */}
-      <div className="uppercase">
-        <p className="">Genre</p>
-        <p className="text-dark">{story.genre}</p>
-      </div>
+      {story.genre && (
+        <div className="uppercase">
+          <p className="">Genre</p>
+          <p className="text-dark">{story.genre}</p>
+        </div>
+      )}
 
       {/* Screening date */}
       {story.screeningDate && (

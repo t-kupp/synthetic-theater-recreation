@@ -49,18 +49,20 @@ export default function BottomLink({
           onMouseLeave={() => timelineRef.current?.reverse()}
         >
           {children}
-          <h1 className="font-bit relative overflow-hidden text-[4.5rem] leading-[65%] uppercase md:text-[10rem]">
-            <span className="title relative block">{story.displayName}</span>
-            <span className="title absolute top-full block">{story.displayName}</span>
-          </h1>
-          <div className="w-[110px] -translate-x-[18px] scale-[60%] overflow-x-hidden md:-translate-x-0 md:scale-100">
-            <div className="text-dark relative flex h-20 w-[360px] -translate-x-[50px] flex-nowrap">
-              <ArrowRight className="arrow-right absolute left-0/18" width={120} />
-              <ArrowRight className="arrow-right absolute left-1/18" width={120} />
-              <ArrowRight className="arrow-right absolute left-2/18" width={120} />
-              <ArrowRight className="arrow-right absolute left-6/18" width={120} />
-              <ArrowRight className="arrow-right absolute left-7/18" width={120} />
-              <ArrowRight className="arrow-right absolute left-8/18" width={120} />
+          <div className={isEndCard ? "lg:ml-5" : ""}>
+            <h1 className="font-bit relative overflow-hidden text-[4.5rem] leading-[65%] uppercase md:text-[10rem]">
+              <span className="title relative block">{story.displayName}</span>
+              <span className="title absolute top-full block">{story.displayName}</span>
+            </h1>
+            <div className="w-[110px] -translate-x-[18px] scale-[60%] overflow-x-hidden md:-translate-x-0 md:scale-100">
+              <div className="text-dark relative flex h-20 w-[360px] -translate-x-[50px] flex-nowrap">
+                <ArrowRight className="arrow-right absolute left-0/18" width={120} />
+                <ArrowRight className="arrow-right absolute left-1/18" width={120} />
+                <ArrowRight className="arrow-right absolute left-2/18" width={120} />
+                <ArrowRight className="arrow-right absolute left-6/18" width={120} />
+                <ArrowRight className="arrow-right absolute left-7/18" width={120} />
+                <ArrowRight className="arrow-right absolute left-8/18" width={120} />
+              </div>
             </div>
           </div>
         </Link>

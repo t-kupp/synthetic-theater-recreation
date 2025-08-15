@@ -101,7 +101,9 @@ export default function HorizontalScroller({ story, previousStory }: HorizontalS
                       height={1024}
                       width={1024}
                     ></Image>
-                    <p className="text-light my-5 text-[11px] uppercase">Previous screening</p>
+                    <p className="text-light text-[11px] uppercase lg:my-5 lg:ml-5">
+                      Previous screening
+                    </p>
                   </div>
                 </BottomLink>
               </div>
