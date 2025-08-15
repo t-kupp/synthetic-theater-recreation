@@ -69,7 +69,7 @@ export default function Header() {
       </header>
       {/* Mobile menu modal  */}
       <div
-        className={`${showMobileMenu ? "opacity-100" : "pointer-events-none opacity-0"} z-10 transition-opacity duration-500`}
+        className={`${showMobileMenu ? "opacity-100" : "pointer-events-none opacity-0"} absolute top-0 left-0 z-10 h-full transition-opacity duration-500`}
       >
         <MobileMenu />
       </div>
