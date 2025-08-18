@@ -60,7 +60,7 @@ export default function Header() {
           </Link>
         </div>
         {/* Menu desktop */}
-        <div className="border-dark hidden h-full items-center gap-8 rounded-full border px-8 py-4 lg:flex">
+        <div className="border-dark bg-background hidden h-full items-center gap-8 rounded-full border px-8 py-4 lg:flex">
           <HeaderLink active={activePage === "screening"} href="/">
             001/Screening
           </HeaderLink>
@@ -73,27 +73,26 @@ export default function Header() {
         </div>
         <div className="flex flex-1 justify-end gap-2">
           {/* Theme switcher */}
-          <div className="flex">
-            <button
-              onClick={cycleThemes}
-              className="border-dark group relative flex h-12 w-12 items-center justify-center rounded-full border"
-            >
-              <div className="bg-dark absolute h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
-              <span className="relative block overflow-hidden">
-                <span className="relative block transition-all duration-200 ease-out group-hover:-translate-y-full">
-                  <Eye size={20} className="text-white/50" />
-                </span>
-                <span className="absolute top-full left-0 block transition-all duration-200 ease-out group-hover:-translate-y-full">
-                  <Eye size={20} className="text-black" />
-                </span>
+          <button
+            onClick={cycleThemes}
+            className="border-dark group bg-background relative flex h-12 w-12 items-center justify-center rounded-full border"
+          >
+            <div className="bg-dark absolute h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
+            <span className="relative block overflow-hidden">
+              <span className="relative block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                <Eye size={20} className="text-white/50" />
               </span>
-            </button>
-          </div>
+              <span className="absolute top-full left-0 block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                <Eye size={20} className="text-black" />
+              </span>
+            </span>
+          </button>
+
           {/* Menu mobile button*/}
           <div className="flex lg:hidden">
             <button
               onClick={() => setShowMobileMenu((prev) => !prev)}
-              className="border-dark group relative flex h-12 w-12 items-center justify-center rounded-full border"
+              className="border-dark bg-background group relative flex h-12 w-12 items-center justify-center rounded-full border"
             >
               <div className="bg-dark absolute h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
               <span className="relative">{showMobileMenu ? <X size={20} /> : <Menu />}</span>
