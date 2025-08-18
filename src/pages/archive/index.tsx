@@ -1,9 +1,13 @@
 import storiesData from "@/../public/stories/storiesData.json";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-export default function index() {
+export default function Index() {
   const { stories } = storiesData;
+  const [imageScale, setImageScale] = useState(1);
+  const [hoveredStory, setHoveredStory] = useState<number | null>(null);
+
   const spans = {
     index: [3, 6, 1],
     title: [13, 10, 7],
@@ -11,6 +15,18 @@ export default function index() {
     date: [1, 7, 3],
     image: [8, 2, 13],
   };
+
+  useEffect(() => {
+    const updateScale = () => {
+      const width = window.innerWidth;
+      // Looks arbitrary, but this value works for ... grid, image and viewport width reasons
+      setImageScale(55000 / width / 100);
+    };
+
+    updateScale();
+    window.addEventListener("resize", updateScale);
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
 
   return (
     <section className="pt-header-height flex h-full flex-col px-5">
@@ -27,6 +43,7 @@ export default function index() {
       {/* List  */}
       {stories.map((story, index) => {
         const i = index % spans.index.length;
+        const isHovered = hoveredStory === story.id;
 
         return (
           <Link
@@ -35,7 +52,11 @@ export default function index() {
             style={{ translate: `0px -${i * 2}px` }}
             className="border-dark hover:border-light border-y-2 py-8 transition-colors hover:z-[1]"
           >
-            <div className="group grid h-32 grid-cols-[repeat(16,1fr)] grid-rows-[repeat(2,1fr)] gap-3">
+            <div
+              onMouseEnter={() => setHoveredStory(story.id)}
+              onMouseLeave={() => setHoveredStory(null)}
+              className="group grid h-32 grid-cols-[repeat(16,1fr)] grid-rows-[repeat(2,1fr)] gap-3"
+            >
               {/* Index  */}
               <div
                 className="relative col-span-3 h-fit w-full overflow-hidden"
@@ -61,7 +82,11 @@ export default function index() {
                 <div className="relative aspect-auto h-full w-full overflow-hidden">
                   <div className="absolute top-1/2 left-1/2 aspect-square w-full -translate-x-1/2 -translate-y-1/2">
                     <Image
-                      className="h-full w-full scale-50 object-cover transition-transform duration-400 ease-out group-hover:scale-100"
+                      style={{
+                        transform: `scale(${isHovered ? 1 : imageScale})`,
+                        transition: "transform 400ms ease-out",
+                      }}
+                      className="h-full w-full object-cover transition-transform duration-400 ease-out group-hover:scale-100"
                       height={1024}
                       width={1024}
                       src={`/stories/${story.title}/${story.images[0].src}`}
