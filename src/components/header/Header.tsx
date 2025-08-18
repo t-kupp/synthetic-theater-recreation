@@ -1,12 +1,42 @@
 import { Eye, Gem, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import HeaderLink from "./HeaderLink";
 import MobileMenu from "./MobileMenu";
 
 export default function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [currentTheme, setCurrentTheme] = useState(0);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    function handleRouteChange() {
+      setShowMobileMenu(false);
+    }
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
+  function getActivePage(pathname: string) {
+    if (pathname === "/" || pathname.includes("/story")) {
+      return "screening";
+    }
+    if (pathname.includes("/archive")) {
+      return "archive";
+    }
+    if (pathname.includes("/manifesto")) {
+      return "manifesto";
+    }
+    return null;
+  }
+
+  const activePage = getActivePage(pathname);
 
   function cycleThemes() {
     let newTheme = currentTheme + 1;
@@ -31,11 +61,15 @@ export default function Header() {
         </div>
         {/* Menu desktop */}
         <div className="border-dark hidden h-full items-center gap-8 rounded-full border px-8 py-4 lg:flex">
-          <HeaderLink active href="/">
+          <HeaderLink active={activePage === "screening"} href="/">
             001/Screening
           </HeaderLink>
-          <HeaderLink href="/archive">002/Archive</HeaderLink>
-          <HeaderLink href="/manifesto">003/Manifesto</HeaderLink>
+          <HeaderLink active={activePage === "archive"} href="/archive">
+            002/Archive
+          </HeaderLink>
+          <HeaderLink active={activePage === "manifesto"} href="/manifesto">
+            003/Manifesto
+          </HeaderLink>
         </div>
         <div className="flex flex-1 justify-end gap-2">
           {/* Theme switcher */}
@@ -71,7 +105,7 @@ export default function Header() {
       <div
         className={`${showMobileMenu ? "opacity-100" : "pointer-events-none opacity-0"} absolute top-0 left-0 z-10 h-full transition-opacity duration-500`}
       >
-        <MobileMenu />
+        <MobileMenu activePage={activePage} />
       </div>
     </>
   );

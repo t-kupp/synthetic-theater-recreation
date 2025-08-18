@@ -22,10 +22,6 @@ export default function Footer() {
           </div>
         </a>
       </div>
-      <div className="hidden lg:block">
-        <p>Code</p>
-        <p className="text-dark">Handwritten</p>
-      </div>
     </div>
   );
 }
