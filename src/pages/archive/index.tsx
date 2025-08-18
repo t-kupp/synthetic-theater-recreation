@@ -59,11 +59,11 @@ export default function Index() {
             href={`/story/${story.title}`}
             key={story.id}
             style={{ translate: `0px -${i * 2}px` }}
-            className="border-dark hover:border-light border-y-2 py-5 transition-colors hover:z-[1] sm:py-8"
+            onMouseEnter={() => setHoveredStory(story.id)}
+            onMouseLeave={() => setHoveredStory(null)}
+            className="border-dark hover:border-light group border-y-2 py-5 transition-colors hover:z-[1] sm:py-8"
           >
             <div
-              onMouseEnter={() => setHoveredStory(story.id)}
-              onMouseLeave={() => setHoveredStory(null)}
               style={
                 {
                   translate: `0px -${i * 2}px`,
@@ -79,7 +79,7 @@ export default function Index() {
                   "--mobile-image": spans.mobile.image[i],
                 } as React.CSSProperties
               }
-              className="group grid h-[calc(100vw/3-25px)] grid-cols-[repeat(3,1fr)] grid-rows-[repeat(2,1fr)] gap-3 sm:h-32 sm:grid-cols-[repeat(16,1fr)]"
+              className="grid h-[calc(100vw/3-25px)] grid-cols-[repeat(3,1fr)] grid-rows-[repeat(2,1fr)] gap-3 sm:h-32 sm:grid-cols-[repeat(16,1fr)]"
             >
               {/* Index  */}
               <div className="relative col-span-1 [grid-column-start:var(--mobile-index)] h-fit w-full overflow-hidden sm:col-span-3 sm:[grid-column-start:var(--desktop-index)]">
