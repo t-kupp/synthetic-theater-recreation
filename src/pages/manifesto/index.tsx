@@ -1,35 +1,55 @@
 import ShapeBackground from "@/components/header/ShapeBackground";
 import AnimatedText from "@/components/manifesto/AnimatedText";
+import ScrollIndicator from "@/components/manifesto/ScrollIndicator";
 import TextSection from "@/components/manifesto/TextSection";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Index() {
   const containerRef = useRef<HTMLDivElement>(null);
   const manifestoRef = useRef<HTMLDivElement>(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const [showScrollText, setShowScrollText] = useState(true);
 
   useGSAP(() => {
     const tl = gsap.timeline({
+      onUpdate: () => {
+        setShowScrollText(tl.progress() < 0.1);
+        setShowScrollIndicator(tl.progress() < 0.9);
+      },
       scrollTrigger: {
         trigger: containerRef.current,
         pin: true,
         scrub: 1,
         start: "top top",
+        end: "+=1000",
       },
     });
 
-    tl.to(manifestoRef.current, { yPercent: -100, ease: "none" });
+    tl.to(manifestoRef.current, {
+      // ??? Why does this kinda work
+      y: -(manifestoRef.current?.clientHeight - window.innerHeight),
+      ease: "none",
+    });
   });
 
   return (
-    <div ref={containerRef} className="h-[100svh]">
-      <section ref={manifestoRef} className="h-full">
-        {/* Marquee texts  */}
-        <div className="relative h-full">
+    <div ref={containerRef} className="h-screen overflow-y-hidden">
+      {/* Scroll indicator  */}
+      <ScrollIndicator showScrollText={showScrollText} showScrollIndicator={showScrollIndicator} />
+      <section ref={manifestoRef}>
+        <div className="relative h-screen">
+          {/* Background shape  */}
+          <div className="absolute inset-0 h-full">
+            <div className="bg-background absolute bottom-0 h-full w-full mix-blend-difference"></div>
+            <ShapeBackground />
+            <div className="bg-background absolute bottom-6 h-12 w-full"></div>
+          </div>
+          {/* Marquee texts  */}
           <div className="pt-header-height absolute inset-0 z-[1] flex flex-col gap-y-4 overflow-hidden md:mt-16 md:gap-y-1">
             <AnimatedText leftPercent={5} text="If I'm to" direction="right" />
             <AnimatedText leftPercent={15} text="Disappear" direction="left" />
@@ -41,13 +61,10 @@ export default function Index() {
             <AnimatedText leftPercent={30} text="Continue" direction="left" />
             <AnimatedText leftPercent={65} text="To exist" direction="left" />
           </div>
-          <div className="absolute inset-0">
-            <ShapeBackground />
-            <div className="bg-background absolute bottom-0 h-full w-full mix-blend-difference"></div>
-          </div>
         </div>
+
         {/* Manifesto texts  */}
-        <div className="flex flex-col gap-72 px-5">
+        <div className="mt-32 flex flex-col gap-72 px-5">
           <TextSection index={1}>
             This website is a recreation of{" "}
             <a
