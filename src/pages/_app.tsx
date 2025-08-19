@@ -3,6 +3,7 @@ import Mouse from "@/components/Mouse";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
+import Script from "next/script";
 
 const PPSupplyMono = localFont({
   src: [{ path: "../../public/fonts/PPSupplyMono-Regular.woff2", weight: "400" }],
@@ -16,10 +17,20 @@ const PPNeueBit = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${PPSupplyMono.variable} ${PPNeueBit.variable} h-full antialiased`}>
-      <Header />
-      <Component {...pageProps} />
-      <Mouse />
-    </main>
+    <>
+      <Script
+        src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"
+        onLoad={() => {
+          if (window.UnicornStudio) {
+            window.UnicornStudio.init();
+          }
+        }}
+      />
+      <main className={`${PPSupplyMono.variable} ${PPNeueBit.variable} h-full antialiased`}>
+        <Header />
+        <Component {...pageProps} />
+        <Mouse />
+      </main>
+    </>
   );
 }
