@@ -27,8 +27,7 @@ export default function Index() {
       },
       wrapper: containerRef.current,
       content: contentRef.current,
-      smooth: 1,
-      effects: true,
+      smooth: 0.3,
       smoothTouch: 0.1,
     });
   });
@@ -60,11 +59,11 @@ export default function Index() {
             </div>
           </div>
           {/* Manifesto texts  */}
-          <div className="mx-auto mt-32 flex max-w-7xl flex-col gap-72 px-5">
-            <TextSection index={1}>
+          <div className="mx-auto mt-16 flex max-w-7xl flex-col gap-48 px-5 sm:mt-32 sm:gap-96">
+            <TextSection textLeft index={1}>
               This project is a recreation of{" "}
               <a
-                className="text-light border-b-2"
+                className="text-light border-b-2 transition-opacity hover:opacity-65"
                 target="_blank"
                 href="https://www.designisfunny.co/"
               >
@@ -72,7 +71,7 @@ export default function Index() {
               </a>{" "}
               <a
                 target="_blank"
-                className="text-light border-b-2"
+                className="text-light border-b-2 transition-opacity hover:opacity-65"
                 href="https://www.synthetictheatre.com/"
               >
                 Synthetic Theatre
@@ -80,28 +79,64 @@ export default function Index() {
               , an Awwwards-winning passion project that merges AI-generated storytelling with
               sophisticated design systems.
             </TextSection>
-            <TextSection index={2} reversed>
+            <TextSection index={2}>
               The first time visiting his website was full of "How did he do that?!" and "How does
               this even work?!" That's exactly why I chose this website as my first recreation
               project.
             </TextSection>
-            <TextSection index={3}>
+            <TextSection index={3} textLeft>
               I was able to analyze complex designs and find solutions within my skillset, with GSAP
               being a core component. I struggled often but was usually able to solve the problem -{" "}
               <a
                 href="https://www.notion.so/Synthetic-Theater-Recreation-Struggles-and-solutions-245bd2cf34098018b70ff728439a60e2?source=copy_link"
                 target="_blank"
-                className="text-light border-b-2"
+                className="text-light border-b-2 transition-opacity hover:opacity-65"
               >
                 some of them documented here
               </a>
               .
             </TextSection>
-            <TextSection index={4} reversed>
+            <TextSection index={4}>
               It's not groundbreaking work - I recreated someone else's vision. But I built
               solutions for dynamic grid positioning, infinite scrolling animations, and draggable
               galleries that respond to real-time interactions.
             </TextSection>
+          </div>
+
+          {/* Contact  */}
+          <div className="mt-64 flex flex-col items-center gap-8">
+            <p className="font-bit w-full text-center text-[2rem] uppercase sm:text-[4rem]">
+              Want to get in touch?
+            </p>
+            <a
+              href="mailto:kupper.thorge@gmail.com"
+              className="border-dark group relative flex h-full w-fit items-center justify-center rounded-full border px-4 py-2 uppercase"
+            >
+              <div className="bg-dark absolute bottom-0 h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
+              <span className="relative block translate-y-[1px] overflow-hidden pt-0.5">
+                <span className="relative block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                  Drop me a message
+                </span>
+                <span className="absolute top-full left-0 block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                  Drop me a message
+                </span>
+              </span>
+            </a>
+          </div>
+
+          {/* Design by  */}
+          <div className="mt-48 px-5 pb-5 text-center uppercase sm:mt-96 sm:pb-0 sm:text-left">
+            <p className="text-dark">Design by</p>
+            <a href="https://www.designisfunny.co/" className="group">
+              <div className="relative overflow-hidden">
+                <p className="underline transition-transform ease-out group-hover:-translate-y-full">
+                  Daniele Buffa (Design is Funny)
+                </p>
+                <p className="absolute top-full underline transition-transform ease-out group-hover:-translate-y-full">
+                  Daniele Buffa (Design is Funny)
+                </p>
+              </div>
+            </a>
           </div>
         </section>
       </div>

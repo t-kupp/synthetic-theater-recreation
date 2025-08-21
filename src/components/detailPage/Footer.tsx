@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <div className="flex flex-col gap-5 px-5 pb-5 text-[11px] uppercase sm:flex-row sm:gap-20">
+    <div className="mt-5 flex flex-col gap-5 px-5 pb-5 text-[11px] uppercase sm:flex-row sm:gap-20">
       <div>
         <p>AI Content</p>
         <p className="text-dark">ChatGPT & Midjourney (Art) Claude (Stories)</p>

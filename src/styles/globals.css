@@ -71,6 +71,10 @@ main {
   font-family: var(--font-pp-supply-mono), Arial, Helvetica, sans-serif;
 }
 
+p {
+  line-height: 1.25;
+}
+
 button {
   cursor: pointer;
 }

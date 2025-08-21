@@ -14,7 +14,7 @@ export default function DetailPage({ story, previousStory }: DetailPageProps) {
       {/* Name and info  */}
       <div className="flex items-end px-5 lg:gap-20">
         <div className="flex-1">
-          <h1 className="font-bit text-[16vw] leading-[60%] tracking-tight uppercase lg:translate-y-1.5 lg:text-[min(9vw,10rem)]">
+          <h1 className="font-bit text-[16vw] !leading-[60%] tracking-tight uppercase lg:translate-y-1.5 lg:text-[min(12vw,13rem)]">
             {story.displayName}
           </h1>
         </div>
@@ -25,7 +25,7 @@ export default function DetailPage({ story, previousStory }: DetailPageProps) {
         </div>
 
         {/* Number  */}
-        <p className="font-bit text-dark text-[8vw] leading-[65%] lg:text-[min(4.5vw,10rem)]">
+        <p className="font-bit text-dark text-[8vw] !leading-[65%] lg:text-[min(4.5vw,10rem)]">
           (0{story.id})
         </p>
       </div>

@@ -41,10 +41,10 @@ export default function Index() {
     <section className="pt-header-height flex h-full flex-col px-5">
       {/* Header  */}
       <header className="font-bit mb-16 flex items-end justify-between uppercase">
-        <h1 className="font-bit text-[16vw] leading-[60%] tracking-tight uppercase lg:translate-y-1.5 lg:text-[min(9vw,10rem)]">
+        <h1 className="font-bit text-[16vw] !leading-[60%] tracking-tight uppercase lg:translate-y-1.5 lg:text-[min(9vw,10rem)]">
           Archive
         </h1>
-        <p className="font-bit text-dark text-[8vw] leading-[65%] lg:text-[min(4.5vw,10rem)]">
+        <p className="font-bit text-dark text-[8vw] !leading-[65%] lg:text-[min(4.5vw,10rem)]">
           (0{stories.length})
         </p>
       </header>

@@ -53,7 +53,7 @@ export default function Header() {
         <div className="h-full flex-1">
           <Link href={"/"} className="inline-flex h-full items-center gap-2">
             <Gem size={32} className="text-dark -mt-[2px]" />
-            <p className="hidden text-xs leading-[1.15] tracking-wider uppercase md:block">
+            <p className="hidden text-xs tracking-wider uppercase md:block">
               Neural <br />
               Canvas
             </p>
