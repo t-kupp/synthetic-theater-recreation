@@ -28,9 +28,9 @@ export default function AnimatedText({ text, direction, leftPercent }: AnimatedT
     <div
       ref={textRef}
       style={{ left: `${leftPercent}%` }}
-      className={"font-bit relative w-full text-[4rem] md:text-[11vh]"}
+      className="font-bit relative w-full text-[4rem] md:text-[11vh]"
     >
-      <p className="w-full !leading-[60%] uppercase">{text}</p>
+      <p className="marquee-text w-full !leading-[60%] uppercase">{text}</p>
       <p
         className={
           (direction === "right" ? "right-[100%]" : "left-[100%]") +

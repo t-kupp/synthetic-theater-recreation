@@ -44,7 +44,7 @@ export default function Index() {
   useGSAP(
     () => {
       // Enter animations
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({ delay: 0.25 });
 
       // Title
       const titleSplit = SplitText.create(".title", { type: "chars", mask: "chars" });

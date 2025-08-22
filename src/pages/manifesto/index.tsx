@@ -3,7 +3,8 @@ import AnimatedText from "@/components/manifesto/AnimatedText";
 import ScrollIndicator from "@/components/manifesto/ScrollIndicator";
 import TextSection from "@/components/manifesto/TextSection";
 import { useGSAP } from "@gsap/react";
-import { ScrollSmoother } from "gsap/all";
+import gsap from "gsap";
+import { ScrollSmoother, SplitText } from "gsap/all";
 import { useRef, useState } from "react";
 
 export default function Index() {
@@ -12,22 +13,42 @@ export default function Index() {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [showScrollText, setShowScrollText] = useState(true);
 
-  useGSAP(() => {
-    ScrollSmoother.create({
-      onUpdate: () => {
-        if (!contentRef.current) return;
-        const top = contentRef.current.getBoundingClientRect().top;
-        const bottom = contentRef.current.getBoundingClientRect().bottom - window.innerHeight;
-        setShowScrollText(top > -50);
-        setShowScrollIndicator(bottom > 300);
-        console.log("bottom:", bottom);
-      },
-      wrapper: containerRef.current,
-      content: contentRef.current,
-      smooth: 0.3,
-      smoothTouch: 0.1,
-    });
-  });
+  useGSAP(
+    () => {
+      // Scroll smoother
+      ScrollSmoother.create({
+        onUpdate: () => {
+          if (!contentRef.current) return;
+          const top = contentRef.current.getBoundingClientRect().top;
+          const bottom = contentRef.current.getBoundingClientRect().bottom - window.innerHeight;
+          setShowScrollText(top > -50);
+          setShowScrollIndicator(bottom > 300);
+          console.log("bottom:", bottom);
+        },
+        wrapper: containerRef.current,
+        content: contentRef.current,
+        smooth: 0.3,
+        smoothTouch: 0.1,
+      });
+
+      // Enter animations
+      const tl = gsap.timeline({ delay: 0.25 });
+      const marqueeTexts = gsap.utils.toArray(".marquee-text");
+      marqueeTexts.forEach((text, i) => {
+        SplitText.create(text, {
+          type: "lines",
+          mask: "lines",
+          autoSplit: true,
+          onSplit: (self) => {
+            tl.from(self.lines, { y: 100 }, i / 20);
+          },
+        });
+      });
+
+      // tl.from(".marquee-text", { yPercent: 100 });
+    },
+    { scope: containerRef }
+  );
 
   return (
     <>

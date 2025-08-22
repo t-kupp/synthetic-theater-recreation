@@ -16,7 +16,7 @@ export default function Home() {
   useGSAP(
     () => {
       // Enter animations
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({ delay: 0.25 });
 
       // Info bar
       tl.from(".info-item", { yPercent: 100, stagger: 0.2 }, 0);
