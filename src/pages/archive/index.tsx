@@ -1,9 +1,13 @@
 import storiesData from "@/../public/stories/storiesData.json";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Index() {
+  const archiveRef = useRef(null);
   const { stories } = storiesData;
   const [imageScale, setImageScale] = useState(0);
   const [hoveredStory, setHoveredStory] = useState<number | null>(null);
@@ -37,11 +41,28 @@ export default function Index() {
     return () => window.removeEventListener("resize", updateScale);
   }, []);
 
+  useGSAP(
+    () => {
+      // Enter animations
+      const tl = gsap.timeline();
+
+      // Title
+      const titleSplit = SplitText.create(".title", { type: "chars", mask: "chars" });
+      tl.from(titleSplit.chars, {
+        xPercent: 100,
+        stagger: 0.04,
+        duration: 1.5,
+        ease: "expo.out",
+      });
+    },
+    { scope: archiveRef }
+  );
+
   return (
-    <section className="pt-header-height flex h-full flex-col px-5">
+    <section ref={archiveRef} className="pt-header-height flex h-full flex-col px-5">
       {/* Header  */}
       <header className="font-bit mb-16 flex items-end justify-between uppercase">
-        <h1 className="font-bit text-[16vw] !leading-[60%] tracking-tight uppercase lg:translate-y-1.5 lg:text-[min(9vw,10rem)]">
+        <h1 className="title font-bit text-[16vw] !leading-[60%] tracking-tight uppercase lg:translate-y-1.5 lg:text-[min(9vw,10rem)]">
           Archive
         </h1>
         <p className="font-bit text-dark text-[8vw] !leading-[65%] lg:text-[min(4.5vw,10rem)]">

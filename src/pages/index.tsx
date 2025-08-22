@@ -13,9 +13,9 @@ const newestStory = stories[stories.length - 1];
 export default function Home() {
   const homeRef = useRef(null);
 
-  // Enter animations
   useGSAP(
     () => {
+      // Enter animations
       const tl = gsap.timeline();
 
       // Info bar
@@ -63,8 +63,8 @@ export default function Home() {
         titleSplit.chars,
         {
           xPercent: 100,
-          stagger: 0.025,
-          duration: 2,
+          stagger: 0.04,
+          duration: 1.5,
           ease: "expo.out",
         },
         0
