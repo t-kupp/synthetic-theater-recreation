@@ -55,7 +55,7 @@ export default function BottomLink({
               <span className="title absolute top-full block">{story.displayName}</span>
             </h1>
             <div className="w-[110px] -translate-x-[18px] scale-[60%] overflow-x-hidden md:-translate-x-0 md:scale-100">
-              <div className="text-dark relative flex h-20 w-[360px] -translate-x-[50px] flex-nowrap">
+              <div className="arrow text-dark relative flex h-20 w-[360px] -translate-x-[50px] flex-nowrap">
                 <ArrowRight className="arrow-right absolute left-0/18" width={120} />
                 <ArrowRight className="arrow-right absolute left-1/18" width={120} />
                 <ArrowRight className="arrow-right absolute left-2/18" width={120} />
@@ -67,7 +67,7 @@ export default function BottomLink({
           </div>
         </Link>
         {!isEndCard && (
-          <div className="font-bit text-dark right-5 bottom-5 text-[2rem] !leading-[0.6] md:text-[3.2rem]">{`(0${story.id})`}</div>
+          <div className="index-number font-bit text-dark right-5 bottom-5 text-[2rem] !leading-[0.6] md:text-[3.2rem]">{`(0${story.id})`}</div>
         )}
       </div>
       {!isEndCard && (

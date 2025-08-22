@@ -18,6 +18,7 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
   const { setShowDragCursor } = useStore();
 
   useEffect(() => {
+    // Used for genre tag position calculation
     function handleResize() {
       const width = boxRef.current?.clientWidth;
       if (width) setCardWidth(width);
@@ -49,15 +50,15 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
   return (
     <div className="flex h-[45vh] flex-col overflow-x-hidden">
       {/* title, id, title  */}
-      <div className="mb-2 flex justify-between px-5 text-[11px] uppercase">
-        <span>{story.title}</span>
-        <span>(0{story.id})</span>
-        <span>{story.title}</span>
+      <div className="info-bar mb-2 flex justify-between overflow-hidden px-5 text-[11px] uppercase">
+        <span className="info-item">{story.title}</span>
+        <span className="info-item">(0{story.id})</span>
+        <span className="info-item">{story.title}</span>
       </div>
 
       {/* Horizontal scroller */}
       <div
-        className="relative flex h-full w-full"
+        className="scroller-container relative flex h-full w-full"
         onMouseEnter={() => setShowDragCursor(true)}
         onMouseLeave={() => setShowDragCursor(false)}
       >
@@ -77,7 +78,7 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
 
       <p
         style={{ transform: `translateX(calc(${cardWidth / 2}px - 100%))` }}
-        className="text-dark relative left-1/2 w-fit pt-2 pr-0.5 text-[11px] uppercase"
+        className="genre-text text-dark relative left-1/2 w-fit pt-2 pr-0.5 text-[11px] uppercase"
       >
         Genre: {story.genre}
       </p>

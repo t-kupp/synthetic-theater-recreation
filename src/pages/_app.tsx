@@ -1,8 +1,12 @@
 import Header from "@/components/header/Header";
 import Mouse from "@/components/Mouse";
 import "@/styles/globals.css";
+import gsap from "gsap";
+import { Draggable, InertiaPlugin, ScrollSmoother, ScrollTrigger, SplitText } from "gsap/all";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
+
+gsap.registerPlugin(SplitText, Draggable, InertiaPlugin, ScrollSmoother, ScrollTrigger);
 
 const PPSupplyMono = localFont({
   src: [{ path: "../../public/fonts/PPSupplyMono-Regular.woff2", weight: "400" }],

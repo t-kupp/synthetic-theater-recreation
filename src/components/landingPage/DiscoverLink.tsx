@@ -9,7 +9,7 @@ export default function DiscoverLink({ story }: SummaryProps) {
   return (
     <Link
       href={`/story/${story.title}`}
-      className="border-dark group relative flex h-full items-center justify-center rounded-full border px-4 py-2 uppercase"
+      className="discover-button border-dark group relative flex h-full items-center justify-center rounded-full border px-4 py-2 uppercase"
     >
       <div className="bg-dark absolute bottom-0 h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
       <span className="relative block translate-y-[1px] overflow-hidden pt-0.5">

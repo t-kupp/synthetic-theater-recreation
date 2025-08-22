@@ -3,11 +3,8 @@ import AnimatedText from "@/components/manifesto/AnimatedText";
 import ScrollIndicator from "@/components/manifesto/ScrollIndicator";
 import TextSection from "@/components/manifesto/TextSection";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollSmoother, ScrollTrigger } from "gsap/all";
+import { ScrollSmoother } from "gsap/all";
 import { useRef, useState } from "react";
-
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
 export default function Index() {
   const containerRef = useRef<HTMLDivElement>(null);

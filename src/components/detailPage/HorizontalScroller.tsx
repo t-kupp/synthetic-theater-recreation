@@ -1,9 +1,7 @@
 import { useStore } from "@/store";
 import { GalleryItem, Story } from "@/types";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
-import InertiaPlugin from "gsap/InertiaPlugin";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import BottomLink from "../landingPage/BottomLink";
@@ -37,9 +35,6 @@ export default function HorizontalScroller({ story, previousStory }: HorizontalS
 
   useGSAP(() => {
     if (!containerRef.current || !galleryRef.current) return;
-
-    gsap.registerPlugin(Draggable);
-    gsap.registerPlugin(InertiaPlugin);
 
     Draggable.create(galleryRef.current, {
       type: "x",
