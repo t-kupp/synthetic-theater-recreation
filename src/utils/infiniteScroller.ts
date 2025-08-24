@@ -13,6 +13,9 @@ Features:
    - times - an Array of the times on the timeline where each element hits the "starting" spot.
  */
 
+/* eslint-disable */
+// @ts-nocheck
+
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 import InertiaPlugin from "gsap/InertiaPlugin";

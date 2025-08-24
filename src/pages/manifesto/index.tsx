@@ -88,7 +88,7 @@ export default function Index() {
                 target="_blank"
                 href="https://www.designisfunny.co/"
               >
-                Daniele Buffa's
+                Daniele Buffa&apos;s
               </a>{" "}
               <a
                 target="_blank"
@@ -101,9 +101,9 @@ export default function Index() {
               sophisticated design systems.
             </TextSection>
             <TextSection index={2}>
-              The first time visiting his website was full of "How did he do that?!" and "How does
-              this even work?!" That's exactly why I chose this website as my first recreation
-              project.
+              The first time visiting his website was full of &quot;How did he do that?!&quot; and
+              &quot;How does this even work?!&quot; That&apos;s exactly why I chose this website as
+              my first recreation project.
             </TextSection>
             <TextSection index={3} textLeft>
               I was able to analyze complex designs and find solutions within my skillset, with GSAP
@@ -118,9 +118,9 @@ export default function Index() {
               .
             </TextSection>
             <TextSection index={4}>
-              It's not groundbreaking work - I recreated someone else's vision. But I built
-              solutions for dynamic grid positioning, infinite scrolling animations, and draggable
-              galleries that respond to real-time interactions.
+              It&apos;s not groundbreaking work - I recreated someone else&apos;s vision. But I
+              built solutions for dynamic grid positioning, infinite scrolling animations, and
+              draggable galleries that respond to real-time interactions.
             </TextSection>
           </div>
 
