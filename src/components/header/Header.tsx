@@ -62,7 +62,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed inset-0 z-[9999] m-5 flex h-12 items-center">
+      <header className="fixed inset-0 z-40 m-5 flex h-12 items-center">
         {/* Logo & name  */}
         <div className="h-full flex-1">
           <Link href={"/"} className="inline-flex h-full items-center gap-2">
