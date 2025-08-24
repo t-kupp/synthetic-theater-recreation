@@ -145,15 +145,8 @@ export default function Index() {
           {/* Design by  */}
           <div className="mt-48 px-5 pb-5 text-center uppercase sm:mt-96 sm:pb-0 sm:text-left">
             <p className="text-dark">Design by</p>
-            <a href="https://www.designisfunny.co/" className="group">
-              <div className="relative overflow-hidden">
-                <p className="underline transition-transform ease-out group-hover:-translate-y-full">
-                  Daniele Buffa (Design is Funny)
-                </p>
-                <p className="absolute top-full underline transition-transform ease-out group-hover:-translate-y-full">
-                  Daniele Buffa (Design is Funny)
-                </p>
-              </div>
+            <a href="https://www.designisfunny.co/" className="inline-block">
+              <p className="underline">Daniele Buffa (Design is Funny)</p>
             </a>
           </div>
         </section>

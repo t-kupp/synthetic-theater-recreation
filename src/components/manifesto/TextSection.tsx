@@ -1,4 +1,6 @@
-import { ReactNode } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ReactNode, useRef } from "react";
 
 interface TextSectionProps {
   children: ReactNode;
@@ -7,8 +9,18 @@ interface TextSectionProps {
 }
 
 export default function TextSection({ children, textLeft, index }: TextSectionProps) {
+  const textRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.from(textRef.current, {
+      opacity: 0,
+      scrollTrigger: { trigger: textRef.current, start: "bottom 95%" },
+    });
+  });
+
   return (
     <div
+      ref={textRef}
       className={
         (textLeft ? "sm:flex-row-reverse" : "sm:flex-row") +
         " text-dark flex flex-col justify-between gap-5 sm:flex-row"
