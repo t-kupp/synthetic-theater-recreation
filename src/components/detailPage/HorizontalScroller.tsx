@@ -50,7 +50,6 @@ export default function HorizontalScroller({ story, previousStory }: HorizontalS
         setShowScrollIndicator(this.x > -24);
       },
       onDrag: function () {
-        console.log("this.x:", this.x);
         setShowScrollIndicator(this.x > -24);
       },
     });

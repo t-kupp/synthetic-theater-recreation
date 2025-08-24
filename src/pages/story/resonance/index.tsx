@@ -6,7 +6,5 @@ export default function index() {
   const resonance = stories.find((story) => story.title === "resonance") || stories[0];
   const previousStory = stories.find((story) => story.id === resonance.id - 1) || null;
 
-  console.log("previousStory:", previousStory);
-
   return <DetailPage story={resonance} previousStory={previousStory} />;
 }

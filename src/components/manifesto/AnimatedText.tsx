@@ -13,7 +13,6 @@ export default function AnimatedText({ text, direction, leftPercent }: AnimatedT
 
   useGSAP(() => {
     const duration = 50 + Math.random() * 100;
-    console.log("duration:", duration);
 
     if (direction === "right") {
       gsap.to(textRef.current, { xPercent: 100, duration: duration, ease: "none", repeat: -1 });

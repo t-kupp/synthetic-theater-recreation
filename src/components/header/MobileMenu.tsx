@@ -7,10 +7,10 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ activePage }: MobileMenuProps) {
   return (
-    <nav className="pt-header-height bg-background fixed inset-0 flex flex-col">
+    <nav className="pt-header-height bg-background fixed inset-0 flex flex-col transition-colors duration-400">
       <div className="relative flex flex-1 flex-col items-center justify-center">
         <ShapeBackground />
-        <div className="bg-background/80 absolute bottom-0 h-18 w-full"></div>
+        <div className="bg-background/80 absolute bottom-0 h-18 w-full transition-colors duration-400"></div>
       </div>
       <div className="flex flex-col justify-end gap-4 px-4 pt-4 pb-10">
         <Link

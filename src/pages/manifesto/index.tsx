@@ -23,7 +23,6 @@ export default function Index() {
           const bottom = contentRef.current.getBoundingClientRect().bottom - window.innerHeight;
           setShowScrollText(top > -50);
           setShowScrollIndicator(bottom > 300);
-          console.log("bottom:", bottom);
         },
         wrapper: containerRef.current,
         content: contentRef.current,
