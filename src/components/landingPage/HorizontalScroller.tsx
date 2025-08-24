@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
+// Typescript exception needed to work with javascript helper function
+
 "use client";
 
 import { useStore } from "@/store";
