@@ -24,7 +24,7 @@ export default function ScrollIndicator({
   });
 
   return (
-    <div className="fixed bottom-5 left-1/2 z-[10] -translate-x-1/2 uppercase">
+    <div className="fixed bottom-5 left-1/2 z-[5] -translate-x-1/2 uppercase">
       <div
         className={
           (showScrollText ? "mb-0" : "-mb-8") +
