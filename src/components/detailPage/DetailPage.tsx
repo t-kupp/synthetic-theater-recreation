@@ -21,7 +21,7 @@ export default function DetailPage({ story, previousStory }: DetailPageProps) {
       const tl = gsap.timeline({ delay: 0.25 });
 
       // Index number
-      tl.from(".index-number", { opacity: 0 }, -0.25);
+      tl.from(".index-number", { opacity: 0 }, 0);
 
       // Horizontal scroller
       tl.from(".horizontal-scroller", { x: 50, opacity: 0 }, 0);
@@ -39,44 +39,41 @@ export default function DetailPage({ story, previousStory }: DetailPageProps) {
         0
       );
 
-      // Info bar
-      const infoItems = gsap.utils.toArray(".info-item");
-      infoItems.forEach((item, i) => {
-        SplitText.create(item, {
+      // Info bar (desktop and mobile separately but at same time)
+      const desktopInfoItems = gsap.utils.toArray(".lg\\:block .info-item");
+      const mobileInfoItems = gsap.utils.toArray(".lg\\:hidden .info-item");
+
+      [...desktopInfoItems, ...mobileInfoItems].forEach((item, i) => {
+        const actualIndex = i < desktopInfoItems.length ? i : i - desktopInfoItems.length;
+        const split = SplitText.create(item as Element, {
           type: "lines",
           mask: "lines",
-          autoSplit: true,
-          onSplit: (self) => {
-            tl.from(
-              self.lines,
-              {
-                yPercent: 100,
-                stagger: 0.075,
-              },
-              0.25 + i / 15
-            );
-          },
         });
+        tl.from(
+          split.lines,
+          {
+            yPercent: 100,
+            stagger: 0.075,
+          },
+          0.1 + actualIndex / 15
+        );
       });
 
       // Footer
       const footerItems = gsap.utils.toArray(".footer-item");
       footerItems.forEach((item, i) => {
-        SplitText.create(item, {
+        const split = SplitText.create(item as Element, {
           type: "lines",
           mask: "lines",
-          autoSplit: true,
-          onSplit: (self) => {
-            tl.from(
-              self.lines,
-              {
-                yPercent: 100,
-                stagger: 0.075,
-              },
-              0.25 + i / 15
-            );
-          },
         });
+        tl.from(
+          split.lines,
+          {
+            yPercent: 100,
+            stagger: 0.075,
+          },
+          0.1 + i / 15
+        );
       });
     },
     { scope: detailPageRef }
@@ -93,7 +90,7 @@ export default function DetailPage({ story, previousStory }: DetailPageProps) {
         </div>
 
         {/* Info bar desktop  */}
-        <div className="hidden lg:block">
+        <div className="hidden w-full lg:block">
           <InfoBar story={story} />
         </div>
 

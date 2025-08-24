@@ -7,7 +7,7 @@ interface InfoBarProps {
 
 export default function InfoBar({ story }: InfoBarProps) {
   return (
-    <div className="mt-10 flex items-end justify-between px-5 text-[11px] lg:mt-0 lg:gap-20 lg:px-0">
+    <div className="mt-10 flex w-full items-end justify-between px-5 text-[11px] lg:ml-auto lg:max-w-[450px] lg:px-0">
       {/* Soundtrack  */}
       {story.soundtrack?.artist && story.soundtrack?.title && (
         <div className="uppercase">
@@ -30,16 +30,16 @@ export default function InfoBar({ story }: InfoBarProps) {
       {/* Genre  */}
       {story.genre && (
         <div className="uppercase">
-          <p className="info-item">Genre</p>
-          <p className="text-dark info-item">{story.genre}</p>
+          <p className="info-item text-nowrap">Genre</p>
+          <p className="text-dark info-item text-nowrap">{story.genre}</p>
         </div>
       )}
 
       {/* Screening date */}
       {story.screeningDate && (
         <div className="uppercase">
-          <p className="info-item">Screening Date</p>
-          <p className="text-dark info-item">{story.screeningDate}</p>
+          <p className="info-item text-nowrap">Screening Date</p>
+          <p className="text-dark info-item text-nowrap">{story.screeningDate}</p>
         </div>
       )}
     </div>

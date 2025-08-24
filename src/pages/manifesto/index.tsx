@@ -34,15 +34,19 @@ export default function Index() {
       // Enter animations
       const tl = gsap.timeline({ delay: 0.25 });
       const marqueeTexts = gsap.utils.toArray(".marquee-text");
-      marqueeTexts.forEach((text, i) => {
-        SplitText.create(text, {
+      marqueeTexts.forEach((item, i) => {
+        const split = SplitText.create(item as Element, {
           type: "lines",
           mask: "lines",
-          autoSplit: true,
-          onSplit: (self) => {
-            tl.from(self.lines, { y: 100 }, i / 20);
-          },
         });
+        tl.from(
+          split.lines,
+          {
+            yPercent: 105,
+            stagger: 0.075,
+          },
+          i / 20
+        );
       });
 
       // tl.from(".marquee-text", { yPercent: 100 });

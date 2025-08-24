@@ -30,22 +30,19 @@ export default function Home() {
 
       // Summary texts
       const summaries = gsap.utils.toArray(".summary-text");
-      summaries.forEach((split, i) => {
-        SplitText.create(split, {
+      summaries.forEach((item, i) => {
+        const split = SplitText.create(item as Element, {
           type: "lines",
           mask: "lines",
-          autoSplit: true,
-          onSplit: (self) => {
-            tl.from(
-              self.lines,
-              {
-                yPercent: 100,
-                stagger: 0.075,
-              },
-              0.1 + i / 15
-            );
-          },
         });
+        tl.from(
+          split.lines,
+          {
+            yPercent: 100,
+            stagger: 0.075,
+          },
+          i / 20
+        );
       });
 
       // Arrow, discover button and index number
