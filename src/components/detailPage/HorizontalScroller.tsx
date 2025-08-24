@@ -58,7 +58,10 @@ export default function HorizontalScroller({ story, previousStory }: HorizontalS
 
   return (
     <>
-      <div ref={containerRef} className="mt-10 mb-4 h-full overflow-x-hidden overflow-y-hidden">
+      <div
+        ref={containerRef}
+        className="horizontal-scroller mt-10 mb-4 h-full overflow-x-hidden overflow-y-hidden"
+      >
         <div ref={galleryRef} className="mx-5 flex h-full w-fit">
           {galleryItems.map((item, i) => (
             <div

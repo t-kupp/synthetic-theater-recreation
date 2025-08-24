@@ -11,16 +11,16 @@ export default function InfoBar({ story }: InfoBarProps) {
       {/* Soundtrack  */}
       {story.soundtrack?.artist && story.soundtrack?.title && (
         <div className="uppercase">
-          <p>Soundtrack</p>
+          <p className="info-item">Soundtrack</p>
           <a href="https://youtu.be/QpxFcMYRV08?si=nOFCyAS8hOpFYS-c" target="_blank" className="">
             <div className="group relative overflow-hidden">
-              <p className="text-dark flex items-end gap-2 transition-transform ease-in-out group-hover:-translate-y-full">
+              <p className="info-item text-dark flex items-end transition-transform ease-in-out group-hover:-translate-y-full">
                 {story.soundtrack.artist} - {story.soundtrack.title}
-                <ArrowUpRight className="-translate-y-[1px]" size={16} />
+                <ArrowUpRight className="ml-2 inline-block -translate-y-[1px]" size={16} />
               </p>
-              <p className="text-dark absolute top-full flex items-end gap-2 transition-transform ease-in-out group-hover:-translate-y-full">
+              <p className="text-dark absolute top-full flex items-end transition-transform ease-in-out group-hover:-translate-y-full">
                 {story.soundtrack.artist} - {story.soundtrack.title}
-                <ArrowUpRight className="-translate-y-[1px]" size={16} />
+                <ArrowUpRight className="ml-2 inline-block -translate-y-[1px]" size={16} />
               </p>
             </div>
           </a>
@@ -30,16 +30,16 @@ export default function InfoBar({ story }: InfoBarProps) {
       {/* Genre  */}
       {story.genre && (
         <div className="uppercase">
-          <p className="">Genre</p>
-          <p className="text-dark">{story.genre}</p>
+          <p className="info-item">Genre</p>
+          <p className="text-dark info-item">{story.genre}</p>
         </div>
       )}
 
       {/* Screening date */}
       {story.screeningDate && (
         <div className="uppercase">
-          <p className="">Screening Date</p>
-          <p className="text-dark">{story.screeningDate}</p>
+          <p className="info-item">Screening Date</p>
+          <p className="text-dark info-item">{story.screeningDate}</p>
         </div>
       )}
     </div>
