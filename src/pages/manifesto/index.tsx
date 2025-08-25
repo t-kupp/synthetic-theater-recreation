@@ -118,31 +118,68 @@ export default function Index() {
               .
             </TextSection>
             <TextSection index={4}>
-              It&apos;s not groundbreaking work - I recreated someone else&apos;s vision. But I
-              built solutions for dynamic grid positioning, infinite scrolling animations, and
-              draggable galleries that respond to real-time interactions.
+              This isn&apos;t groundbreaking work - it&apos;s recreating someone else&apos;s vision.
+              But it required building systems for dynamic grid positioning, infinite scrolling
+              animations, and draggable galleries that respond to real-time interactions.
             </TextSection>
           </div>
 
           {/* Contact  */}
-          <div className="mt-64 flex flex-col items-center gap-8">
+          <div className="mt-48 flex flex-col items-center gap-8 sm:mt-96">
             <p className="font-bit w-full text-center text-[2rem] uppercase sm:text-[4rem]">
               Want to get in touch?
             </p>
-            <a
-              href="mailto:kupper.thorge@gmail.com"
-              className="border-dark group relative flex h-full w-fit items-center justify-center rounded-full border px-4 py-2 uppercase"
-            >
-              <div className="bg-dark absolute bottom-0 h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
-              <span className="relative block translate-y-[1px] overflow-hidden pt-0.5">
-                <span className="relative block transition-all duration-200 ease-out group-hover:-translate-y-full">
-                  Drop me a message
+
+            {/* mailto  */}
+            <div className="flex gap-2">
+              <a
+                href="mailto:kupper.thorge@gmail.com"
+                className="border-dark group relative flex h-full w-fit items-center justify-center rounded-full border px-4 py-2 uppercase"
+              >
+                <div className="bg-dark absolute bottom-0 h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
+                <span className="relative block translate-y-[1px] overflow-hidden pt-0.5">
+                  <span className="relative block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                    Drop me a message
+                  </span>
+                  <span className="absolute top-full left-0 block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                    Drop me a message
+                  </span>
                 </span>
-                <span className="absolute top-full left-0 block transition-all duration-200 ease-out group-hover:-translate-y-full">
-                  Drop me a message
+              </a>
+              {/* LinkedIn  */}
+              <a
+                href="https://www.linkedin.com/in/jan-thorge-kupper/"
+                target="_blank"
+                className="border-dark group relative flex h-full w-fit items-center justify-center rounded-full border px-4 py-2 uppercase"
+              >
+                <div className="bg-dark absolute bottom-0 h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
+                <span className="relative block translate-y-[1px] overflow-hidden pt-0.5">
+                  <span className="relative block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                    LinkedIn
+                  </span>
+                  <span className="absolute top-full left-0 block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                    LinkedIn
+                  </span>
                 </span>
-              </span>
-            </a>
+              </a>
+
+              {/* Github  */}
+              <a
+                href="https://github.com/t-kupp"
+                target="_blank"
+                className="border-dark group relative flex h-full w-fit items-center justify-center rounded-full border px-4 py-2 uppercase"
+              >
+                <div className="bg-dark absolute bottom-0 h-0 w-0 rounded-full transition-all duration-200 ease-out group-hover:h-full group-hover:w-full"></div>
+                <span className="relative block translate-y-[1px] overflow-hidden pt-0.5">
+                  <span className="relative block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                    GitHub
+                  </span>
+                  <span className="absolute top-full left-0 block transition-all duration-200 ease-out group-hover:-translate-y-full">
+                    GitHub
+                  </span>
+                </span>
+              </a>
+            </div>
           </div>
 
           {/* Design by  */}

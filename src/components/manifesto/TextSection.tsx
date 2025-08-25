@@ -22,8 +22,8 @@ export default function TextSection({ children, textLeft, index }: TextSectionPr
     <div
       ref={textRef}
       className={
-        (textLeft ? "sm:flex-row-reverse" : "sm:flex-row") +
-        " text-dark flex flex-col justify-between gap-5 sm:flex-row"
+        (textLeft ? "sm:flex-row-reverse" : "text-right sm:flex-row sm:text-left") +
+        " text-dark mt-32 flex flex-col justify-between gap-5 sm:text-left"
       }
     >
       <p className="text-[11px]">{index.toString().padStart(3, "0")}</p>
