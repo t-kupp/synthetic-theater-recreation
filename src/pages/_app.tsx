@@ -2,6 +2,7 @@ import Header from "@/components/header/Header";
 import Mouse from "@/components/Mouse";
 import NoiseBackground from "@/components/NoiseBackground";
 import "@/styles/globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import gsap from "gsap";
 import { Draggable, InertiaPlugin, ScrollSmoother, ScrollTrigger, SplitText } from "gsap/all";
 import type { AppProps } from "next/app";
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Header />
       <Component {...pageProps} />
       <Mouse />
+      <Analytics />
     </main>
   );
 }
