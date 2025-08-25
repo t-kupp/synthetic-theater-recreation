@@ -29,10 +29,10 @@ export default function HorizontalScroller({ story }: HorizontalScrollerProps) {
       if (width) setCardWidth(width);
     }
     handleResize();
-    window.addEventListener("resize", () => handleResize());
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", () => handleResize());
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
