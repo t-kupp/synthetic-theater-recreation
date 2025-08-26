@@ -58,6 +58,16 @@ export default function LoadingScreen() {
         <Gem className="gem3 text-dark h-full w-full" />
       </div>
       <div className="absolute top-1/2 flex w-full -translate-y-1/2 justify-center">
+        <p className="px-16 text-center uppercase">
+          This site is a recreation of{" "}
+          <a
+            href="https://www.synthetictheatre.com/"
+            target="_blank"
+            className="border-light border-b text-nowrap"
+          >
+            Daniele Buffa&apos;s Synthetic Theater
+          </a>
+        </p>
         <p className="absolute right-5">{progress}%</p>
       </div>
     </div>
