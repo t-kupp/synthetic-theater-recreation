@@ -2,6 +2,7 @@ import ShapeBackground from "@/components/header/ShapeBackground";
 import AnimatedText from "@/components/manifesto/AnimatedText";
 import ScrollIndicator from "@/components/manifesto/ScrollIndicator";
 import TextSection from "@/components/manifesto/TextSection";
+import { useStore } from "@/store";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollSmoother, SplitText } from "gsap/all";
@@ -12,6 +13,7 @@ export default function Index() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [showScrollText, setShowScrollText] = useState(true);
+  const { loadingComplete } = useStore();
 
   useGSAP(
     () => {
@@ -31,7 +33,14 @@ export default function Index() {
       });
 
       // Enter animations
-      const tl = gsap.timeline({ delay: 0.25 });
+      const tl = gsap.timeline({ delay: 0.25, paused: !loadingComplete });
+
+      useStore.subscribe((state) => {
+        if (state.loadingComplete) {
+          tl.play();
+        }
+      });
+
       const marqueeTexts = gsap.utils.toArray(".marquee-text");
       marqueeTexts.forEach((item, i) => {
         const split = SplitText.create(item as Element, {
@@ -47,8 +56,6 @@ export default function Index() {
           i / 20
         );
       });
-
-      // tl.from(".marquee-text", { yPercent: 100 });
     },
     { scope: containerRef }
   );

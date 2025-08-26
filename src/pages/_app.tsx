@@ -1,4 +1,5 @@
 import Header from "@/components/header/Header";
+import LoadingScreen from "@/components/LoadingScreen";
 import Mouse from "@/components/Mouse";
 import NoiseBackground from "@/components/NoiseBackground";
 import "@/styles/globals.css";
@@ -27,6 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Header />
       <Component {...pageProps} />
       <Mouse />
+      <LoadingScreen />
       <Analytics />
     </main>
   );

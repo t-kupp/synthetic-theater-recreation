@@ -1,3 +1,4 @@
+import { useStore } from "@/store";
 import { Story } from "@/types";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -14,11 +15,19 @@ interface DetailPageProps {
 
 export default function DetailPage({ story, previousStory }: DetailPageProps) {
   const detailPageRef = useRef(null);
+  const { loadingComplete } = useStore();
 
   useGSAP(
     () => {
       // Enter animations
-      const tl = gsap.timeline({ delay: 0.25 });
+
+      const tl = gsap.timeline({ delay: 0.25, paused: !loadingComplete });
+
+      useStore.subscribe((state) => {
+        if (state.loadingComplete) {
+          tl.play();
+        }
+      });
 
       // Index number
       tl.from(".index-number", { opacity: 0 }, 0);

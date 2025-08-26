@@ -3,6 +3,7 @@ import BottomLink from "@/components/landingPage/BottomLink";
 import Footer from "@/components/landingPage/Footer";
 import HorizontalScroller from "@/components/landingPage/HorizontalScroller";
 import Summary from "@/components/landingPage/Summary";
+import { useStore } from "@/store";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
@@ -12,11 +13,18 @@ const newestStory = stories[stories.length - 1];
 
 export default function Home() {
   const homeRef = useRef(null);
+  const { loadingComplete } = useStore();
 
   useGSAP(
     () => {
       // Enter animations
-      const tl = gsap.timeline({ delay: 0.25 });
+      const tl = gsap.timeline({ delay: 0.25, paused: !loadingComplete });
+
+      useStore.subscribe((state) => {
+        if (state.loadingComplete) {
+          tl.play();
+        }
+      });
 
       // Info bar
       tl.from(".info-item", { yPercent: 100, stagger: 0.2 }, 0);

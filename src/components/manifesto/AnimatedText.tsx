@@ -33,7 +33,7 @@ export default function AnimatedText({ text, direction, leftPercent }: AnimatedT
       <p
         className={
           (direction === "right" ? "right-[100%]" : "left-[100%]") +
-          " absolute top-0 w-full !leading-[60%] uppercase"
+          " marquee-text absolute top-0 w-full !leading-[60%] uppercase"
         }
       >
         {text}

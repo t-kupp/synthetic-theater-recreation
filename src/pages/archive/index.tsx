@@ -1,4 +1,5 @@
 import storiesData from "@/../public/stories/storiesData.json";
+import { useStore } from "@/store";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
@@ -11,6 +12,7 @@ export default function Index() {
   const { stories } = storiesData;
   const [imageScale, setImageScale] = useState(0);
   const [hoveredStory, setHoveredStory] = useState<number | null>(null);
+  const { loadingComplete } = useStore();
 
   const spans = {
     desktop: {
@@ -44,7 +46,13 @@ export default function Index() {
   useGSAP(
     () => {
       // Enter animations
-      const tl = gsap.timeline({ delay: 0.25 });
+      const tl = gsap.timeline({ delay: 0.25, paused: !loadingComplete });
+
+      useStore.subscribe((state) => {
+        if (state.loadingComplete) {
+          tl.play();
+        }
+      });
 
       // Title
       const titleSplit = SplitText.create(".title", { type: "chars", mask: "chars" });
