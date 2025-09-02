@@ -14,21 +14,8 @@ export default function Mouse() {
     const yMoveCursor = gsap.quickTo(cursorRef.current, "top", { duration: 0.3, ease: "power3" });
 
     function handleMouseMove(e: MouseEvent) {
-      let offsetX = 8;
-      let offsetY = 15;
-
-      if (showDragCursor) {
-        offsetX = 8;
-        offsetY = -12;
-      }
-
-      if (!showCustomCursor) {
-        offsetX = 0;
-        offsetY = 0;
-      }
-
-      xMoveCursor(e.pageX - offsetX);
-      yMoveCursor(e.pageY - offsetY);
+      xMoveCursor(e.clientX);
+      yMoveCursor(e.clientY);
     }
 
     function handleMouseDown() {
@@ -49,13 +36,30 @@ export default function Mouse() {
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [showDragCursor]);
+  }, [showDragCursor, showCustomCursor]);
+
+  function getMouseClass() {
+    const baseClasses =
+      "bg-light pointer-events-none fixed z-[9999] hidden items-center justify-center overflow-hidden rounded-full uppercase transition-[width,height,opacity,translate] duration-400 ease-in-out lg:[@media(hover:hover)]:flex";
+
+    if (!showCustomCursor) {
+      return `h-0 w-0 opacity-0 ${baseClasses}`;
+    }
+
+    if (showDragCursor) {
+      if (showDragText) {
+        return `h-8 w-22 -translate-x-2 translate-y-3 ${baseClasses}`;
+      }
+      return `h-8 w-[46px] translate-x-5 translate-y-3 opacity-100 ${baseClasses}`;
+    }
+
+    return `h-2 w-2 -translate-x-2 -translate-y-4 ${baseClasses}`;
+  }
+
+  console.log("showCustomCursor:", showCustomCursor);
 
   return (
-    <div
-      ref={cursorRef}
-      className={`${showDragCursor ? (!showDragText ? "h-8 w-[46px] translate-x-5 opacity-100" : "h-8 w-22 translate-x-0") : "h-2 w-2"} bg-light pointer-events-none fixed hidden items-center justify-center overflow-hidden rounded-full uppercase transition-[width,height,opacity,translate] duration-300 ease-in-out lg:flex`}
-    >
+    <div ref={cursorRef} className={getMouseClass()}>
       {showDragCursor && (
         <span className="text-background flex items-center justify-center leading-none">
           <ArrowLeft size={16} />

@@ -12,7 +12,7 @@ export default function Index() {
   const { stories } = storiesData;
   const [imageScale, setImageScale] = useState(0);
   const [hoveredStory, setHoveredStory] = useState<number | null>(null);
-  const { loadingComplete } = useStore();
+  const { loadingComplete, setShowCustomCursor } = useStore();
 
   const spans = {
     desktop: {
@@ -88,8 +88,14 @@ export default function Index() {
             href={`/story/${story.title}`}
             key={story.id}
             style={{ translate: `0px -${i * 2}px` }}
-            onMouseEnter={() => setHoveredStory(story.id)}
-            onMouseLeave={() => setHoveredStory(null)}
+            onMouseEnter={() => {
+              setHoveredStory(story.id);
+              setShowCustomCursor(false);
+            }}
+            onMouseLeave={() => {
+              setHoveredStory(null);
+              setShowCustomCursor(true);
+            }}
             className="border-dark hover:border-light group border-y-2 py-5 transition-colors hover:z-[1] sm:py-8"
           >
             <div

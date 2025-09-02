@@ -1,3 +1,4 @@
+import { useStore } from "@/store";
 import { ArrowLeft, Eye, Gem, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -13,6 +14,7 @@ export default function Header() {
   const [title, setTitle] = useState<string | null>(null);
   const router = useRouter();
   const pathname = usePathname();
+  const { setShowCustomCursor } = useStore();
 
   useEffect(() => {
     // Change header on detail page
@@ -65,7 +67,12 @@ export default function Header() {
       <header className="fixed inset-0 z-40 m-5 flex h-12 items-center">
         {/* Logo & name  */}
         <div className="h-full flex-1">
-          <Link href={"/"} className="inline-flex h-full items-center gap-2">
+          <Link
+            onMouseEnter={() => setShowCustomCursor(false)}
+            onMouseLeave={() => setShowCustomCursor(true)}
+            href={"/"}
+            className="inline-flex h-full items-center gap-2"
+          >
             <Gem size={32} className="text-dark -mt-[2px]" />
             <p className="hidden text-xs tracking-wider uppercase md:block">
               Neural <br />
@@ -78,7 +85,11 @@ export default function Header() {
         {isDetailPage ? (
           // Back button and story title in detail page
           <div className="hidden gap-2 lg:flex">
-            <Link href={"/"}>
+            <Link
+              href={"/"}
+              onMouseEnter={() => setShowCustomCursor(false)}
+              onMouseLeave={() => setShowCustomCursor(true)}
+            >
               <div className="border-dark group bg-background relative flex h-12 w-12 items-center justify-center rounded-full border transition-colors duration-400">
                 <div className="bg-background group-hover:bg-dark absolute top-1/2 left-1/2 h-0 w-0 -translate-x-1/2 -translate-y-1/2 rounded-full transition-[height,width] duration-300 ease-out group-hover:h-full group-hover:w-full"></div>
                 <div className="relative overflow-hidden">
@@ -109,6 +120,8 @@ export default function Header() {
         <div className="flex flex-1 justify-end gap-2">
           {/* Theme switcher */}
           <button
+            onMouseEnter={() => setShowCustomCursor(false)}
+            onMouseLeave={() => setShowCustomCursor(true)}
             onClick={cycleThemes}
             className="border-dark group bg-background relative flex h-12 w-12 items-center justify-center rounded-full border"
           >

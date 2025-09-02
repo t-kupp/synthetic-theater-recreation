@@ -8,7 +8,7 @@ export default function LoadingScreen() {
   const [progress, setProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const gemContainerRef = useRef<HTMLDivElement>(null);
-  const { setLoadingComplete } = useStore();
+  const { setLoadingComplete, setShowCustomCursor } = useStore();
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -61,6 +61,8 @@ export default function LoadingScreen() {
         <p className="px-16 text-center uppercase">
           This site is a recreation of{" "}
           <a
+            onMouseEnter={() => setShowCustomCursor(false)}
+            onMouseLeave={() => setShowCustomCursor(true)}
             href="https://www.synthetictheatre.com/"
             target="_blank"
             className="border-light border-b text-nowrap"

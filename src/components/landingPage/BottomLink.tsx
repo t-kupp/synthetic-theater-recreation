@@ -1,3 +1,4 @@
+import { useStore } from "@/store";
 import { Story } from "@/types";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -20,6 +21,7 @@ export default function BottomLink({
 }: BottomLinkProps) {
   const bottomLinkSectionRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<GSAPTimeline>(null);
+  const { setShowCustomCursor } = useStore();
 
   useGSAP(
     () => {
@@ -45,8 +47,14 @@ export default function BottomLink({
         <Link
           href={`/story/${story.title}`}
           className={(isEndCard ? "w-full" : "w-auto") + " relative -mb-5 flex flex-col md:-mb-0"}
-          onMouseEnter={() => timelineRef.current?.play()}
-          onMouseLeave={() => timelineRef.current?.reverse()}
+          onMouseEnter={() => {
+            setShowCustomCursor(false);
+            timelineRef.current?.play();
+          }}
+          onMouseLeave={() => {
+            setShowCustomCursor(true);
+            timelineRef.current?.reverse();
+          }}
         >
           {children}
           <div className={isEndCard ? "lg:ml-5" : ""}>

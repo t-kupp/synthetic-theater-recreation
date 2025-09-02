@@ -13,7 +13,7 @@ export default function Index() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [showScrollText, setShowScrollText] = useState(true);
-  const { loadingComplete } = useStore();
+  const { loadingComplete, setShowCustomCursor } = useStore();
 
   useGSAP(
     () => {
@@ -91,6 +91,8 @@ export default function Index() {
             <TextSection textLeft index={1}>
               This project is a recreation of{" "}
               <a
+                onMouseEnter={() => setShowCustomCursor(false)}
+                onMouseLeave={() => setShowCustomCursor(true)}
                 className="text-light border-b-2 transition-opacity hover:opacity-65"
                 target="_blank"
                 href="https://www.designisfunny.co/"
@@ -98,6 +100,8 @@ export default function Index() {
                 Daniele Buffa&apos;s
               </a>{" "}
               <a
+                onMouseEnter={() => setShowCustomCursor(false)}
+                onMouseLeave={() => setShowCustomCursor(true)}
                 target="_blank"
                 className="text-light border-b-2 transition-opacity hover:opacity-65"
                 href="https://www.synthetictheatre.com/"
@@ -116,6 +120,8 @@ export default function Index() {
               I was able to analyze complex designs and find solutions within my skillset, with GSAP
               being a core component. I struggled often but was usually able to solve the problem -{" "}
               <a
+                onMouseEnter={() => setShowCustomCursor(false)}
+                onMouseLeave={() => setShowCustomCursor(true)}
                 href="https://www.notion.so/Synthetic-Theater-Recreation-Struggles-and-solutions-245bd2cf34098018b70ff728439a60e2?source=copy_link"
                 target="_blank"
                 className="text-light border-b-2 transition-opacity hover:opacity-65"
@@ -140,6 +146,8 @@ export default function Index() {
             {/* mailto  */}
             <div className="flex gap-2">
               <a
+                onMouseEnter={() => setShowCustomCursor(false)}
+                onMouseLeave={() => setShowCustomCursor(true)}
                 href="mailto:kupper.thorge@gmail.com"
                 className="border-dark group relative flex h-full w-fit items-center justify-center rounded-full border px-4 py-2 uppercase"
               >
@@ -155,6 +163,8 @@ export default function Index() {
               </a>
               {/* LinkedIn  */}
               <a
+                onMouseEnter={() => setShowCustomCursor(false)}
+                onMouseLeave={() => setShowCustomCursor(true)}
                 href="https://www.linkedin.com/in/jan-thorge-kupper/"
                 target="_blank"
                 className="border-dark group relative flex h-full w-fit items-center justify-center rounded-full border px-4 py-2 uppercase"
@@ -172,6 +182,8 @@ export default function Index() {
 
               {/* Github  */}
               <a
+                onMouseEnter={() => setShowCustomCursor(false)}
+                onMouseLeave={() => setShowCustomCursor(true)}
                 href="https://github.com/t-kupp"
                 target="_blank"
                 className="border-dark group relative flex h-full w-fit items-center justify-center rounded-full border px-4 py-2 uppercase"
@@ -192,7 +204,12 @@ export default function Index() {
           {/* Design by  */}
           <div className="mt-48 px-5 pb-5 text-center uppercase sm:mt-96 sm:pb-0 sm:text-left">
             <p className="text-dark">Design by</p>
-            <a href="https://www.designisfunny.co/" className="inline-block">
+            <a
+              onMouseEnter={() => setShowCustomCursor(false)}
+              onMouseLeave={() => setShowCustomCursor(true)}
+              href="https://www.designisfunny.co/"
+              className="inline-block"
+            >
               <p className="underline">Daniele Buffa (Design is Funny)</p>
             </a>
           </div>

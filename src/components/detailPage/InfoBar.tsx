@@ -1,3 +1,4 @@
+import { useStore } from "@/store";
 import { Story } from "@/types";
 import { ArrowUpRight } from "lucide-react";
 
@@ -6,13 +7,21 @@ interface InfoBarProps {
 }
 
 export default function InfoBar({ story }: InfoBarProps) {
+  const { setShowCustomCursor } = useStore();
+
   return (
     <div className="mt-10 flex w-full items-end justify-between px-5 text-[11px] lg:ml-auto lg:max-w-[450px] lg:px-0">
       {/* Soundtrack  */}
       {story.soundtrack?.artist && story.soundtrack?.title && (
         <div className="uppercase">
           <p className="info-item">Soundtrack</p>
-          <a href="https://youtu.be/QpxFcMYRV08?si=nOFCyAS8hOpFYS-c" target="_blank" className="">
+          <a
+            onMouseEnter={() => setShowCustomCursor(false)}
+            onMouseLeave={() => setShowCustomCursor(true)}
+            href="https://youtu.be/QpxFcMYRV08?si=nOFCyAS8hOpFYS-c"
+            target="_blank"
+            className=""
+          >
             <div className="group relative overflow-hidden">
               <p className="info-item text-dark flex items-end transition-transform ease-in-out group-hover:-translate-y-full">
                 {story.soundtrack.artist} - {story.soundtrack.title}
