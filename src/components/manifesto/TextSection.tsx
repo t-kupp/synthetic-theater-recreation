@@ -14,7 +14,7 @@ export default function TextSection({ children, textLeft, index }: TextSectionPr
   useGSAP(() => {
     gsap.from(textRef.current, {
       opacity: 0,
-      scrollTrigger: { trigger: textRef.current, start: "bottom 95%" },
+      scrollTrigger: { trigger: textRef.current, start: "bottom 98%" },
     });
   });
 
