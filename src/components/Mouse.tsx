@@ -2,12 +2,27 @@ import { useStore } from "@/store";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 
 export default function Mouse() {
   const cursorRef = useRef(null);
   const [showDragText, setShowDragText] = useState(true);
-  const { showDragCursor, showCustomCursor } = useStore();
+  const { showDragCursor, showCustomCursor, setShowCustomCursor, setShowDragCursor } = useStore();
+  const router = useRouter();
+
+  // Resets mouse state on reroute
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setShowCustomCursor(true);
+      setShowDragCursor(false);
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events, setShowCustomCursor, setShowDragCursor]);
 
   useGSAP(() => {
     const xMoveCursor = gsap.quickTo(cursorRef.current, "left", { duration: 0.3, ease: "power3" });
